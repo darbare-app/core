@@ -13,6 +13,11 @@
     "cf-typegen": "wrangler types --env-interface CloudflareEnv env.d.ts"
   },
   "dependencies": {
+    "@emotion/cache": "^11.13.1",
+    "@emotion/react": "^11.13.3",
+    "@emotion/styled": "^11.13.0",
+    "@mui/material": "^6.1.2",
+    "@mui/material-nextjs": "^6.1.2",
     "next": "14.2.5",
     "react": "^18",
     "react-dom": "^18"
@@ -26,9 +31,9 @@
     "eslint": "^8",
     "eslint-config-next": "14.2.5",
     "eslint-plugin-next-on-pages": "^1.13.3",
+    "prettier": "^3.3.3",
     "typescript": "^5",
     "vercel": "^37.6.0",
-    "wrangler": "^3.79.0",
-    "prettier": "^3.3.3"
+    "wrangler": "^3.79.0"
   }
 }
