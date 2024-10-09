@@ -1,8 +1,10 @@
+import { Fragment } from "react";
+
 export const runtime = "edge";
 
 export default function NotFound() {
   return (
-    <>
+    <Fragment>
       <title>404: This page could not be found.</title>
       <div style={styles.error}>
         <div>
@@ -19,7 +21,7 @@ export default function NotFound() {
           </div>
         </div>
       </div>
-    </>
+    </Fragment>
   );
 }
 
