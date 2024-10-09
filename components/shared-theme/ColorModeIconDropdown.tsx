@@ -1,4 +1,3 @@
-import * as React from "react";
 import DarkModeIcon from "@mui/icons-material/DarkModeOutlined";
 import LightModeIcon from "@mui/icons-material/LightModeOutlined";
 import Box from "@mui/material/Box";
@@ -6,12 +5,13 @@ import IconButton from "@mui/material/IconButton";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import { useColorScheme } from "@mui/material/styles";
+import { Fragment, MouseEvent, useState } from "react";
 
 export default function ColorModeIconDropdown() {
   const { mode, systemMode, setMode } = useColorScheme();
-  const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
+  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
-  const handleClick = (event: React.MouseEvent<HTMLElement>) => {
+  const handleClick = (event: MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget);
   };
   const handleClose = () => {
@@ -43,7 +43,7 @@ export default function ColorModeIconDropdown() {
     dark: <DarkModeIcon />,
   }[resolvedMode];
   return (
-    <React.Fragment>
+    <Fragment>
       <IconButton
         data-screenshot="toggle-mode"
         onClick={handleClick}
@@ -82,6 +82,6 @@ export default function ColorModeIconDropdown() {
           Dark
         </MenuItem>
       </Menu>
-    </React.Fragment>
+    </Fragment>
   );
 }

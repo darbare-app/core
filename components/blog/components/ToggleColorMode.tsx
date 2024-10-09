@@ -1,4 +1,4 @@
-import * as React from "react";
+
 import { PaletteMode } from "@mui/material/styles";
 import IconButton, { IconButtonProps } from "@mui/material/IconButton";
 import ModeNightRoundedIcon from "@mui/icons-material/ModeNightRounded";

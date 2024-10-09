@@ -1,6 +1,4 @@
 "use client";
-
-import * as React from "react";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Checkbox from "@mui/material/Checkbox";
@@ -18,7 +16,7 @@ import { createTheme, ThemeProvider, styled, PaletteMode } from "@mui/material/s
 import getSignUpTheme from "./theme/getSignUpTheme";
 import { GoogleIcon, FacebookIcon, SitemarkIcon } from "../CustomIcons";
 import TemplateFrame from "./TemplateFrame";
-
+import { FormEvent, useEffect, useState } from "react";
 
 const Card = styled(MuiCard)(({ theme }) => ({
   display: "flex",
@@ -53,18 +51,18 @@ const SignUpContainer = styled(Stack)(({ theme }) => ({
 }));
 
 export default function SignUp() {
-  const [mode, setMode] = React.useState<PaletteMode>("light");
-  const [showCustomTheme, setShowCustomTheme] = React.useState(true);
+  const [mode, setMode] = useState<PaletteMode>("light");
+  const [showCustomTheme, setShowCustomTheme] = useState(true);
   const defaultTheme = createTheme({ palette: { mode } });
   const SignUpTheme = createTheme(getSignUpTheme(mode));
-  const [nameError, setNameError] = React.useState(false);
-  const [nameErrorMessage, setNameErrorMessage] = React.useState("");
-  const [emailError, setEmailError] = React.useState(false);
-  const [emailErrorMessage, setEmailErrorMessage] = React.useState("");
-  const [passwordError, setPasswordError] = React.useState(false);
-  const [passwordErrorMessage, setPasswordErrorMessage] = React.useState("");
+  const [nameError, setNameError] = useState(false);
+  const [nameErrorMessage, setNameErrorMessage] = useState("");
+  const [emailError, setEmailError] = useState(false);
+  const [emailErrorMessage, setEmailErrorMessage] = useState("");
+  const [passwordError, setPasswordError] = useState(false);
+  const [passwordErrorMessage, setPasswordErrorMessage] = useState("");
   // This code only runs on the client side, to determine the system color preference
-  React.useEffect(() => {
+  useEffect(() => {
     // Check if there is a preferred mode in localStorage
     const savedMode = localStorage.getItem("themeMode") as PaletteMode | null;
     if (savedMode) {
@@ -122,7 +120,7 @@ export default function SignUp() {
     return isValid;
   };
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     if (nameError || emailError || passwordError) {
       event.preventDefault();
       return;

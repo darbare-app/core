@@ -1,4 +1,3 @@
-import * as React from "react";
 import clsx from "clsx";
 import { animated, useSpring } from "@react-spring/web";
 import { TransitionProps } from "@mui/material/transitions";
@@ -21,7 +20,8 @@ import {
 import { TreeItem2Icon } from "@mui/x-tree-view/TreeItem2Icon";
 import { TreeItem2Provider } from "@mui/x-tree-view/TreeItem2Provider";
 import { TreeViewBaseItem } from "@mui/x-tree-view/models";
-import { useTheme } from "@mui/material/styles";
+import { Color as muiColors, useTheme } from "@mui/material/styles";
+import { HTMLAttributes, ReactNode, Ref, forwardRef } from "react";
 
 type Color = "blue" | "green";
 
@@ -97,7 +97,7 @@ function TransitionComponent(props: TransitionProps) {
 }
 
 interface CustomLabelProps {
-  children: React.ReactNode;
+  children: ReactNode;
   color?: Color;
   expandable?: boolean;
 }
@@ -122,11 +122,11 @@ function CustomLabel({ color, expandable, children, ...other }: CustomLabelProps
 
 interface CustomTreeItemProps
   extends Omit<UseTreeItem2Parameters, "rootRef">,
-    Omit<React.HTMLAttributes<HTMLLIElement>, "onFocus"> {}
+    Omit<HTMLAttributes<HTMLLIElement>, "onFocus"> {}
 
-const CustomTreeItem = React.forwardRef(function CustomTreeItem(
+const CustomTreeItem = forwardRef(function CustomTreeItem(
   props: CustomTreeItemProps,
-  ref: React.Ref<HTMLLIElement>,
+  ref: Ref<HTMLLIElement>,
 ) {
   const { id, itemId, label, disabled, children, ...other } = props;
 
