@@ -1,4 +1,3 @@
-
 import Avatar from "@mui/material/Avatar";
 import AvatarGroup from "@mui/material/AvatarGroup";
 import Box from "@mui/material/Box";
@@ -15,6 +14,7 @@ import OutlinedInput from "@mui/material/OutlinedInput";
 import { styled } from "@mui/material/styles";
 import SearchRoundedIcon from "@mui/icons-material/SearchRounded";
 import RssFeedRoundedIcon from "@mui/icons-material/RssFeedRounded";
+import { useState } from "react";
 
 const cardData = [
   {
@@ -161,7 +161,7 @@ export function Search() {
 }
 
 export default function MainContent() {
-  const [focusedCardIndex, setFocusedCardIndex] = React.useState<number | null>(null);
+  const [focusedCardIndex, setFocusedCardIndex] = useState<number | null>(null);
 
   const handleFocus = (index: number) => {
     setFocusedCardIndex(index);

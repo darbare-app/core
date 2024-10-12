@@ -1,3 +1,4 @@
+"use client";
 
 import CssBaseline from "@mui/material/CssBaseline";
 import Container from "@mui/material/Container";
@@ -7,16 +8,16 @@ import MainContent from "./components/MainContent";
 import Latest from "./components/Latest";
 import Footer from "./components/Footer";
 import TemplateFrame from "./TemplateFrame";
-
 import getBlogTheme from "./theme/getBlogTheme";
+import { useState, useEffect } from "react";
 
 export default function Blog() {
-  const [mode, setMode] = React.useState<PaletteMode>("light");
-  const [showCustomTheme, setShowCustomTheme] = React.useState(true);
+  const [mode, setMode] = useState<PaletteMode>("light");
+  const [showCustomTheme, setShowCustomTheme] = useState(true);
   const blogTheme = createTheme(getBlogTheme(mode));
   const defaultTheme = createTheme({ palette: { mode } });
   // This code only runs on the client side, to determine the system color preference
-  React.useEffect(() => {
+  useEffect(() => {
     // Check if there is a preferred mode in localStorage
     const savedMode = localStorage.getItem("themeMode") as PaletteMode | null;
     if (savedMode) {
@@ -39,24 +40,26 @@ export default function Blog() {
   };
 
   return (
-    <TemplateFrame
-      toggleCustomTheme={toggleCustomTheme}
-      showCustomTheme={showCustomTheme}
-      mode={mode}
-      toggleColorMode={toggleColorMode}
-    >
-      <CssBaseline enableColorScheme />
-
-      <AppAppBar />
-      <Container
-        maxWidth="lg"
-        component="main"
-        sx={{ display: "flex", flexDirection: "column", my: 16, gap: 4 }}
+    <ThemeProvider theme={showCustomTheme ? blogTheme : defaultTheme}>
+      <TemplateFrame
+        toggleCustomTheme={toggleCustomTheme}
+        showCustomTheme={showCustomTheme}
+        mode={mode}
+        toggleColorMode={toggleColorMode}
       >
-        <MainContent />
-        <Latest />
-      </Container>
-      <Footer />
-    </TemplateFrame>
+        <CssBaseline enableColorScheme />
+
+        <AppAppBar />
+        <Container
+          maxWidth="lg"
+          component="main"
+          sx={{ display: "flex", flexDirection: "column", my: 16, gap: 4 }}
+        >
+          <MainContent />
+          <Latest />
+        </Container>
+        <Footer />
+      </TemplateFrame>
+    </ThemeProvider>
   );
 }
