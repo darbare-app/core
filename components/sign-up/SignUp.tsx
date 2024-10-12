@@ -14,9 +14,10 @@ import Stack from "@mui/material/Stack";
 import MuiCard from "@mui/material/Card";
 import { createTheme, ThemeProvider, styled, PaletteMode } from "@mui/material/styles";
 import getSignUpTheme from "./theme/getSignUpTheme";
-import { GoogleIcon, FacebookIcon, SitemarkIcon } from "../CustomIcons";
+import { GoogleIcon, FacebookIcon } from "../CustomIcons";
 import TemplateFrame from "./TemplateFrame";
 import { FormEvent, useEffect, useState } from "react";
+import Logo from "../Logo";
 
 const Card = styled(MuiCard)(({ theme }) => ({
   display: "flex",
@@ -145,7 +146,7 @@ export default function SignUp() {
         <CssBaseline enableColorScheme />
         <SignUpContainer direction="column" justifyContent="space-between">
           <Card variant="outlined">
-            <SitemarkIcon />
+            <Logo />
             <Typography
               component="h1"
               variant="h4"

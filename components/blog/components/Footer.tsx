@@ -1,4 +1,3 @@
-
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Container from "@mui/material/Container";
@@ -12,7 +11,8 @@ import Typography from "@mui/material/Typography";
 import FacebookIcon from "@mui/icons-material/GitHub";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import TwitterIcon from "@mui/icons-material/X";
-import SitemarkIcon from "./SitemarkIcon";
+import Logo from "@/components/Logo";
+import { Fragment } from "react";
 
 function Copyright() {
   return (
@@ -29,7 +29,7 @@ function Copyright() {
 
 export default function Footer() {
   return (
-    <React.Fragment>
+    <Fragment>
       <Divider />
       <Container
         sx={{
@@ -58,7 +58,7 @@ export default function Footer() {
             }}
           >
             <Box sx={{ width: { xs: "100%", sm: "60%" } }}>
-              <SitemarkIcon />
+              <Logo />
               <Typography variant="body2" gutterBottom sx={{ fontWeight: 600, mt: 2 }}>
                 Join the newsletter
               </Typography>
@@ -212,6 +212,6 @@ export default function Footer() {
           </Stack>
         </Box>
       </Container>
-    </React.Fragment>
+    </Fragment>
   );
 }

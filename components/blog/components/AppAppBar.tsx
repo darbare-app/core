@@ -1,4 +1,3 @@
-
 import { alpha, styled } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import AppBar from "@mui/material/AppBar";
@@ -11,7 +10,8 @@ import MenuItem from "@mui/material/MenuItem";
 import Drawer from "@mui/material/Drawer";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
-import Sitemark from "./SitemarkIcon";
+import Logo from "@/components/Logo";
+import { useState } from "react";
 
 const StyledToolbar = styled(Toolbar)(({ theme }) => ({
   display: "flex",
@@ -28,7 +28,7 @@ const StyledToolbar = styled(Toolbar)(({ theme }) => ({
 }));
 
 export default function AppAppBar() {
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
 
   const toggleDrawer = (newOpen: boolean) => () => {
     setOpen(newOpen);
@@ -42,7 +42,7 @@ export default function AppAppBar() {
       <Container maxWidth="lg">
         <StyledToolbar variant="dense" disableGutters>
           <Box sx={{ flexGrow: 1, display: "flex", alignItems: "center", px: 0 }}>
-            <Sitemark />
+            <Logo />
             <Box sx={{ display: { xs: "none", md: "flex" } }}>
               <Button variant="text" color="info" size="small">
                 Features
