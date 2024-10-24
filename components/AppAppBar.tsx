@@ -12,6 +12,9 @@ import Drawer from "@mui/material/Drawer";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
 import Logo from "@/components/Logo";
+import { useTranslation } from "react-i18next";
+import useLinkAddress from "@/hooks/useLinkAddress";
+import Link from "next/link";
 
 const StyledToolbar = styled(Toolbar)(({ theme }) => ({
   display: "flex",
@@ -27,12 +30,39 @@ const StyledToolbar = styled(Toolbar)(({ theme }) => ({
   padding: "8px 12px",
 }));
 
+export interface navItem {
+  name: string;
+  link: string;
+}
+
 export default function AppAppBar() {
   const [open, setOpen] = React.useState(false);
+  const { t } = useTranslation();
+  const getLink = useLinkAddress();
 
   const toggleDrawer = (newOpen: boolean) => () => {
     setOpen(newOpen);
   };
+
+  const navItems: navItem[] = [
+    {
+      name: t("blog"),
+      link: getLink("blog"),
+    },
+    {
+      name: t("dashboard"),
+      link: getLink("dashboard"),
+    },
+  ];
+
+  console.log(navItems);
+  
+
+  const navElements = navItems.map(({ name, link }) => (
+    <Button key={link} component={Link} variant="text" color="info" size="small" href={link}>
+      {name}
+    </Button>
+  ));
 
   return (
     <AppBar
@@ -43,26 +73,7 @@ export default function AppAppBar() {
         <StyledToolbar variant="dense" disableGutters>
           <Box sx={{ flexGrow: 1, display: "flex", alignItems: "center", px: 0 }}>
             <Logo />
-            <Box sx={{ display: { xs: "none", md: "flex" } }}>
-              <Button variant="text" color="info" size="small">
-                Features
-              </Button>
-              <Button variant="text" color="info" size="small">
-                Testimonials
-              </Button>
-              <Button variant="text" color="info" size="small">
-                Highlights
-              </Button>
-              <Button variant="text" color="info" size="small">
-                Pricing
-              </Button>
-              <Button variant="text" color="info" size="small" sx={{ minWidth: 0 }}>
-                FAQ
-              </Button>
-              <Button variant="text" color="info" size="small" sx={{ minWidth: 0 }}>
-                Blog
-              </Button>
-            </Box>
+            <Box sx={{ display: { xs: "none", md: "flex" } }}>{navElements}</Box>
           </Box>
           <Box
             sx={{
