@@ -1,4 +1,41 @@
 {
-  "extends": ["next/core-web-vitals", "plugin:eslint-plugin-next-on-pages/recommended"],
-  "plugins": ["eslint-plugin-next-on-pages"]
+  "root": true,
+  "env": {
+    "browser": true,
+    "es2021": true,
+    "node": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:import/errors",
+    "plugin:import/warnings",
+    "plugin:import/typescript",
+    "eslint-plugin-next-on-pages"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "project": "./tsconfig.json", // Ensure ESLint uses your TypeScript settings
+    "sourceType": "module",
+    "ecmaVersion": "latest"
+  },
+  "plugins": [
+    "@typescript-eslint",
+    "next/core-web-vitals",
+    "plugin:eslint-plugin-next-on-pages/recommended"
+  ],
+  "rules": {
+    "import/no-unresolved": "error", // Ensure import paths are correct
+    "import/order": ["error", { "caseInsensitive": false }], // Enforce case-sensitive import paths
+    "@typescript-eslint/no-unused-vars": ["warn"],
+    "@typescript-eslint/explicit-module-boundary-types": "off"
+  },
+  "settings": {
+    "import/resolver": {
+      "typescript": {
+        "alwaysTryTypes": true, // Try to resolve types under `@types` directory as well
+        "project": "./tsconfig.json"
+      }
+    }
+  }
 }
