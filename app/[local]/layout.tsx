@@ -14,9 +14,9 @@ export const metadata: Metadata = {
 
 export default async function RootLayout({ children, locale }: ReactProps) {
   const { resources } = await initTranslations(locale);
-
+  
   return (
-    <html lang={locale}>
+    <html lang={locale} dir={locale === "fa" ? "rtl" : "ltr"}>
       <TranslationsProvider resources={resources} locale={locale}>
         <body className={inter.className}>{children}</body>
       </TranslationsProvider>
