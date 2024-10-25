@@ -22,4 +22,7 @@ export default [
       "@typescript-eslint/ban-ts-comment": "off",
     },
   },
+  {
+    ignores: ["node_modules/", ".next/", "dist/", "out/", "public/", "scripts/"],
+  },
 ];
