@@ -1,4 +1,3 @@
-
 import { styled } from "@mui/material/styles";
 import Typography from "@mui/material/Typography";
 import Breadcrumbs, { breadcrumbsClasses } from "@mui/material/Breadcrumbs";
@@ -14,7 +13,6 @@ const StyledBreadcrumbs = styled(Breadcrumbs)(({ theme }) => ({
     alignItems: "center",
   },
 }));
-
 export default function NavbarBreadcrumbs() {
   return (
     <StyledBreadcrumbs

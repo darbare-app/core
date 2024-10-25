@@ -10,7 +10,6 @@ import Footer from "./components/Footer";
 import TemplateFrame from "./TemplateFrame";
 import getBlogTheme from "./theme/getBlogTheme";
 import { useState, useEffect } from "react";
-
 export default function Blog() {
   const [mode, setMode] = useState<PaletteMode>("light");
   const [showCustomTheme, setShowCustomTheme] = useState(true);

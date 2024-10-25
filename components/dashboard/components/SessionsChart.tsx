@@ -1,4 +1,3 @@
-
 import { useTheme } from "@mui/material/styles";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
@@ -32,7 +31,6 @@ function getDaysInMonth(month: number, year: number) {
   }
   return days;
 }
-
 export default function SessionsChart() {
   const theme = useTheme();
   const data = getDaysInMonth(4, 2024);

@@ -6,7 +6,7 @@ import { dataDisplayCustomizations } from "./customizations/dataDisplay";
 import { feedbackCustomizations } from "./customizations/feedback";
 import { navigationCustomizations } from "./customizations/navigation";
 import { surfacesCustomizations } from "./customizations/surfaces";
-import { colorSchemes, typography, shadows, shape } from "./themePrimitives";
+import { colorSchemes, typography, shadows, shape } from "@/theme/themePrimitives";
 
 interface AppThemeProps {
   children: ReactNode;
@@ -16,7 +16,6 @@ interface AppThemeProps {
   disableCustomTheme?: boolean;
   themeComponents?: ThemeOptions["components"];
 }
-
 export default function AppTheme({ children, disableCustomTheme, themeComponents }: AppThemeProps) {
   const theme = useMemo(() => {
     return disableCustomTheme

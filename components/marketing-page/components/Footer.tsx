@@ -24,7 +24,6 @@ function Copyright() {
     </Typography>
   );
 }
-
 export default function Footer() {
   return (
     <Container

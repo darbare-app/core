@@ -13,7 +13,6 @@ import Footer from "./components/Footer";
 import getMPTheme from "./theme/getMPTheme";
 import TemplateFrame from "./TemplateFrame";
 import { useEffect, useState } from "react";
-
 export default function MarketingPage() {
   const [mode, setMode] = useState<PaletteMode>("light");
   const [showCustomTheme, setShowCustomTheme] = useState(true);

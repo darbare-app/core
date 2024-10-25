@@ -7,7 +7,6 @@ import { ReactProps } from "@/types/defaultProps";
 interface Props extends ReactProps {
   resources: Resource;
 }
-
 export default function TranslationsProvider({ children, locale, resources }: Props) {
   const i18n = createInstance();
 

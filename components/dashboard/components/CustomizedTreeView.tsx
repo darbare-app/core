@@ -170,7 +170,6 @@ const CustomTreeItem = forwardRef(function CustomTreeItem(
     </TreeItem2Provider>
   );
 });
-
 export default function CustomizedTreeView() {
   return (
     <Card

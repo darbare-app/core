@@ -1,4 +1,3 @@
-
 import { createTheme, ThemeProvider, PaletteMode, styled } from "@mui/material/styles";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
 import MenuItem from "@mui/material/MenuItem";
@@ -34,7 +33,6 @@ interface TemplateFrameProps {
   toggleColorMode: () => void;
   children: React.ReactNode;
 }
-
 export default function TemplateFrame({
   showCustomTheme,
   toggleCustomTheme,

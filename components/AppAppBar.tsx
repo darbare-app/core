@@ -29,12 +29,10 @@ const StyledToolbar = styled(Toolbar)(({ theme }) => ({
   boxShadow: theme.shadows[1],
   padding: "8px 12px",
 }));
-
 export interface navItem {
   name: string;
   link: string;
 }
-
 export default function AppAppBar() {
   const [open, setOpen] = React.useState(false);
   const { t } = useTranslation();
@@ -56,7 +54,6 @@ export default function AppAppBar() {
   ];
 
   console.log(navItems);
-  
 
   const navElements = navItems.map(({ name, link }) => (
     <Button key={link} component={Link} variant="text" color="info" size="small" href={link}>

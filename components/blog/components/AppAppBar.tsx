@@ -26,7 +26,6 @@ const StyledToolbar = styled(Toolbar)(({ theme }) => ({
   boxShadow: theme.shadows[1],
   padding: "8px 12px",
 }));
-
 export default function AppAppBar() {
   const [open, setOpen] = useState(false);
 

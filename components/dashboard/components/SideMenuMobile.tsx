@@ -1,4 +1,3 @@
-
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import Divider from "@mui/material/Divider";
@@ -16,7 +15,6 @@ interface SideMenuMobileProps {
   open: boolean | undefined;
   toggleDrawer: (newOpen: boolean) => () => void;
 }
-
 export default function SideMenuMobile({ open, toggleDrawer }: SideMenuMobileProps) {
   return (
     <Drawer

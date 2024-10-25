@@ -1,4 +1,3 @@
-
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Button from "@mui/material/Button";
@@ -7,7 +6,6 @@ import ChevronRightRoundedIcon from "@mui/icons-material/ChevronRightRounded";
 import InsightsRoundedIcon from "@mui/icons-material/InsightsRounded";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { useTheme } from "@mui/material/styles";
-
 export default function HighlightedCard() {
   const theme = useTheme();
   const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));

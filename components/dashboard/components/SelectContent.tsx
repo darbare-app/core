@@ -25,7 +25,6 @@ const ListItemAvatar = styled(MuiListItemAvatar)({
   minWidth: 0,
   marginRight: 12,
 });
-
 export default function SelectContent() {
   const [company, setCompany] = useState("");
 

@@ -14,7 +14,6 @@ import { useState, MouseEvent, Fragment } from "react";
 const MenuItem = styled(MuiMenuItem)({
   margin: "2px 0",
 });
-
 export default function OptionsMenu() {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);

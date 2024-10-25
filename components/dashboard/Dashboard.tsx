@@ -26,7 +26,6 @@ const xThemeComponents = {
   ...datePickersCustomizations,
   ...treeViewCustomizations,
 };
-
 export default function Dashboard(props: { disableCustomTheme?: boolean }) {
   return (
     <AppTheme {...props} themeComponents={xThemeComponents}>

@@ -8,7 +8,6 @@ interface ToggleColorModeProps extends IconButtonProps {
   mode: PaletteMode;
   toggleColorMode: () => void;
 }
-
 export default function ToggleColorMode({ mode, toggleColorMode, ...props }: ToggleColorModeProps) {
   return (
     <IconButton

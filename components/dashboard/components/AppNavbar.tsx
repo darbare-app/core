@@ -26,7 +26,6 @@ const Toolbar = styled(MuiToolbar)({
     pb: 0,
   },
 });
-
 export default function AppNavbar() {
   const [open, setOpen] = useState(false);
 
@@ -72,7 +71,6 @@ export default function AppNavbar() {
     </AppBar>
   );
 }
-
 export function CustomIcon() {
   return (
     <Box

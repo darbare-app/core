@@ -1,4 +1,3 @@
-
 import { PaletteMode } from "@mui/material/styles";
 import WbSunnyRoundedIcon from "@mui/icons-material/WbSunnyRounded";
 import ModeNightRoundedIcon from "@mui/icons-material/ModeNightRounded";
@@ -8,7 +7,6 @@ interface ToggleColorModeProps extends MenuButtonProps {
   mode: PaletteMode;
   toggleColorMode: () => void;
 }
-
 export default function ToggleColorMode({ mode, toggleColorMode, ...props }: ToggleColorModeProps) {
   return (
     <MenuButton

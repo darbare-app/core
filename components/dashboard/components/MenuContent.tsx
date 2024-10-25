@@ -1,4 +1,3 @@
-
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
@@ -25,7 +24,6 @@ const secondaryListItems = [
   { text: "About", icon: <InfoRoundedIcon /> },
   { text: "Feedback", icon: <HelpRoundedIcon /> },
 ];
-
 export default function MenuContent() {
   return (
     <Stack sx={{ flexGrow: 1, p: 1, justifyContent: "space-between" }}>

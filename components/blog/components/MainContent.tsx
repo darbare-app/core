@@ -138,7 +138,6 @@ function Author({ authors }: { authors: { name: string; avatar: string }[] }) {
     </Box>
   );
 }
-
 export function Search() {
   return (
     <FormControl sx={{ width: { xs: "100%", md: "25ch" } }} variant="outlined">
@@ -159,7 +158,6 @@ export function Search() {
     </FormControl>
   );
 }
-
 export default function MainContent() {
   const [focusedCardIndex, setFocusedCardIndex] = useState<number | null>(null);
 

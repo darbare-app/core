@@ -1,4 +1,3 @@
-
 import Avatar from "@mui/material/Avatar";
 import Chip from "@mui/material/Chip";
 import { GridCellParams, GridRowsProp, GridColDef } from "@mui/x-data-grid";
@@ -56,7 +55,6 @@ function renderStatus(status: "Online" | "Offline") {
 
   return <Chip label={status} color={colors[status]} size="small" />;
 }
-
 export function renderAvatar(params: GridCellParams<{ name: string; color: string }, any, any>) {
   if (params.value == null) {
     return "";
@@ -75,7 +73,6 @@ export function renderAvatar(params: GridCellParams<{ name: string; color: strin
     </Avatar>
   );
 }
-
 export const columns: GridColDef[] = [
   { field: "pageTitle", headerName: "Page Title", flex: 1.5, minWidth: 200 },
   {
@@ -125,7 +122,6 @@ export const columns: GridColDef[] = [
     renderCell: renderSparklineCell,
   },
 ];
-
 export const rows: GridRowsProp = [
   {
     id: 1,

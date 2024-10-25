@@ -18,14 +18,11 @@ declare module "@mui/material/styles/createPalette" {
     800: string;
     900: string;
   }
-
-  interface PaletteColor extends ColorRange {}
 }
 
 const defaultTheme = createTheme();
 
 const customShadows: Shadows = [...defaultTheme.shadows];
-
 export const brand = {
   50: "hsl(210, 100%, 95%)",
   100: "hsl(210, 100%, 92%)",
@@ -38,7 +35,6 @@ export const brand = {
   800: "hsl(210, 100%, 16%)",
   900: "hsl(210, 100%, 21%)",
 };
-
 export const gray = {
   50: "hsl(220, 35%, 97%)",
   100: "hsl(220, 30%, 94%)",
@@ -51,7 +47,6 @@ export const gray = {
   800: "hsl(220, 30%, 6%)",
   900: "hsl(220, 35%, 3%)",
 };
-
 export const green = {
   50: "hsl(120, 80%, 98%)",
   100: "hsl(120, 75%, 94%)",
@@ -64,7 +59,6 @@ export const green = {
   800: "hsl(120, 84%, 10%)",
   900: "hsl(120, 87%, 6%)",
 };
-
 export const orange = {
   50: "hsl(45, 100%, 97%)",
   100: "hsl(45, 92%, 90%)",
@@ -77,7 +71,6 @@ export const orange = {
   800: "hsl(45, 95%, 16%)",
   900: "hsl(45, 93%, 12%)",
 };
-
 export const red = {
   50: "hsl(0, 100%, 97%)",
   100: "hsl(0, 92%, 90%)",
@@ -90,7 +83,6 @@ export const red = {
   800: "hsl(0, 95%, 12%)",
   900: "hsl(0, 93%, 6%)",
 };
-
 export const getDesignTokens = (mode: PaletteMode) => {
   customShadows[1] =
     mode === "dark"
