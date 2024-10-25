@@ -6,12 +6,13 @@ import { createTheme, ThemeProvider, PaletteMode } from "@mui/material/styles";
 import AppAppBar from "@/components/AppAppBar";
 import MainContent from "./components/MainContent";
 import Latest from "./components/Latest";
-import Footer from "./components/Footer";
+import Footer from "@/components/Footer";
 import TemplateFrame from "./TemplateFrame";
 import getBlogTheme from "./theme/getBlogTheme";
 import { useState, useEffect } from "react";
+
 export default function Blog() {
-  const [mode, setMode] = useState<PaletteMode>("light");
+  const [mode, setMode] = useState< PaletteMode>("light");
   const [showCustomTheme, setShowCustomTheme] = useState(true);
   const blogTheme = createTheme(getBlogTheme(mode));
   const defaultTheme = createTheme({ palette: { mode } });
