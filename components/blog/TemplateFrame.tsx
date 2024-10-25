@@ -1,4 +1,4 @@
-import { createTheme, ThemeProvider, PaletteMode, styled } from "@mui/material/styles";
+import { PaletteMode, styled } from "@mui/material/styles";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
@@ -9,7 +9,6 @@ import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import ArrowBackRoundedIcon from "@mui/icons-material/ArrowBackRounded";
 import ToggleColorMode from "./components/ToggleColorMode";
-import getBlogTheme from "./theme/getBlogTheme";
 
 const StyledAppBar = styled(AppBar)(({ theme }) => ({
   position: "relative",
@@ -43,7 +42,6 @@ export default function TemplateFrame({
   const handleChange = (event: SelectChangeEvent) => {
     toggleCustomTheme(event.target.value === "custom");
   };
-  const blogTheme = createTheme(getBlogTheme(mode));
 
   return (
     <Box sx={{ height: "100dvh", display: "flex", flexDirection: "column" }}>
