@@ -53,8 +53,6 @@ export default function AppAppBar() {
     },
   ];
 
-  console.log(navItems);
-
   const navElements = navItems.map(({ name, link }) => (
     <Button key={link} component={Link} variant="text" color="info" size="small" href={link}>
       {name}
