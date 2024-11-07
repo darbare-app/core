@@ -17,6 +17,7 @@ import useLinkAddress from "@/hooks/useLinkAddress";
 import Link from "next/link";
 import { ColorModeContext } from "@/theme";
 import ToggleColorMode from "./ToggleColorMode";
+import ToggleLang from "./ToggleLang";
 
 const StyledToolbar = styled(Toolbar)(({ theme }) => ({
   display: "flex",
@@ -114,6 +115,7 @@ export default function AppAppBar() {
               mode={mode}
               toggleColorMode={toggleColorMode}
             />
+            <ToggleLang />
           </Box>
           <Box sx={{ display: { sm: "flex", md: "none" } }}>
             <IconButton aria-label="Menu button" onClick={toggleDrawer(true)}>
