@@ -225,3 +225,7 @@ export const getDesignTokens = (mode: PaletteMode) => {
     shadows: customShadows,
   };
 };
+
+// @ts-ignore
+const defaultShadows: Shadows = ["var(--mui-palette-baseShadow)", ...defaultTheme.shadows.slice(1)];
+export const shadows = defaultShadows;
