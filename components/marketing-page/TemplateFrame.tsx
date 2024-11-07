@@ -10,7 +10,7 @@ import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import ArrowBackRoundedIcon from "@mui/icons-material/ArrowBackRounded";
 import ToggleColorMode from "./components/ToggleColorMode";
-import getMPTheme from "./theme/getMPTheme";
+import getMPTheme from "@/theme/getMPTheme";
 
 const StyledAppBar = styled(AppBar)(({ theme }) => ({
   position: "relative",

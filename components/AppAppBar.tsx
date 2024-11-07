@@ -1,4 +1,4 @@
-import * as React from "react";
+import { useContext, useState } from "react";
 import { styled, alpha } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import AppBar from "@mui/material/AppBar";
@@ -15,6 +15,8 @@ import Logo from "@/components/Logo";
 import { useTranslation } from "react-i18next";
 import useLinkAddress from "@/hooks/useLinkAddress";
 import Link from "next/link";
+import { ColorModeContext } from "@/theme";
+import ToggleColorMode from "./ToggleColorMode";
 
 const StyledToolbar = styled(Toolbar)(({ theme }) => ({
   display: "flex",
@@ -55,9 +57,10 @@ export interface navItem {
   link: string;
 }
 export default function AppAppBar() {
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
   const { t } = useTranslation();
   const getLink = useLinkAddress();
+  const { toggleColorMode, mode } = useContext(ColorModeContext);
 
   const toggleDrawer = (newOpen: boolean) => () => {
     setOpen(newOpen);
@@ -89,7 +92,7 @@ export default function AppAppBar() {
   return (
     <AppBar
       position="fixed"
-      sx={{ boxShadow: 0, bgcolor: "transparent", backgroundImage: "none", mt: 10 }}
+      sx={{ boxShadow: 0, bgcolor: "transparent", backgroundImage: "none", mt: 2 }}
     >
       <Container maxWidth="lg">
         <StyledToolbar variant="dense" disableGutters>
@@ -106,6 +109,11 @@ export default function AppAppBar() {
           >
             <SignInButton />
             <SignUpButton variant="contained" />
+            <ToggleColorMode
+              data-screenshot="toggle-mode"
+              mode={mode}
+              toggleColorMode={toggleColorMode}
+            />
           </Box>
           <Box sx={{ display: { sm: "flex", md: "none" } }}>
             <IconButton aria-label="Menu button" onClick={toggleDrawer(true)}>
@@ -124,7 +132,9 @@ export default function AppAppBar() {
                     <CloseRoundedIcon />
                   </IconButton>
                 </Box>
+
                 <Divider sx={{ my: 3 }} />
+
                 {navElementsMobile}
                 <MenuItem>
                   <SignUpButton />

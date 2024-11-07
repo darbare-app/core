@@ -4,6 +4,7 @@ import "./globals.css";
 import TranslationsProvider from "@/components/TranslationsProvider";
 import { ReactProps } from "@/types/defaultProps";
 import initTranslations from "../i18n";
+import Theme from "@/theme";
 
 const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
@@ -15,11 +16,13 @@ const vazirmatn = Vazirmatn({ subsets: ["arabic"] });
 export default async function RootLayout({ children, local = "fa" }: ReactProps) {
   const { resources } = await initTranslations();
   const fontClassName = local === "fa" ? vazirmatn.className : inter.className;
-  
+
   return (
     <html lang={local} dir={local === "fa" ? "rtl" : "ltr"}>
       <TranslationsProvider resources={resources} local={local}>
-        <body className={fontClassName}>{children}</body>
+        <Theme>
+          <body className={fontClassName}>{children}</body>
+        </Theme>
       </TranslationsProvider>
     </html>
   );
