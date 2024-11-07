@@ -1,4 +1,7 @@
 {
   "name": "Darbare",
-  "blog": "Blog"
+  "blog": "Blog",
+  "dashboard": "Dashboard",
+  "signUp": "Sign Up",
+  "signIn": "Sign In"
 }

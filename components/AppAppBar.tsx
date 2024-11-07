@@ -3,7 +3,7 @@ import { styled, alpha } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
-import Button from "@mui/material/Button";
+import Button, { ButtonProps } from "@mui/material/Button";
 import IconButton from "@mui/material/IconButton";
 import Container from "@mui/material/Container";
 import Divider from "@mui/material/Divider";
@@ -29,6 +29,27 @@ const StyledToolbar = styled(Toolbar)(({ theme }) => ({
   boxShadow: theme.shadows[1],
   padding: "8px 12px",
 }));
+
+function SignUpButton(props: ButtonProps) {
+  const { t } = useTranslation();
+  const getLink = useLinkAddress();
+  return (
+    <Button href={getLink("signIn")} color="primary" variant="contained" {...props}>
+      {t("signUp")}
+    </Button>
+  );
+}
+
+function SignInButton(props: ButtonProps) {
+  const { t } = useTranslation();
+  const getLink = useLinkAddress();
+  return (
+    <Button href={getLink("signUp")} color="primary" variant="outlined" {...props}>
+      {t("signIn")}
+    </Button>
+  );
+}
+
 export interface navItem {
   name: string;
   link: string;
@@ -59,6 +80,12 @@ export default function AppAppBar() {
     </Button>
   ));
 
+  const navElementsMobile = navItems.map(({ name, link }) => (
+    <MenuItem key={link} component={Link} href={link}>
+      {name}
+    </MenuItem>
+  ));
+
   return (
     <AppBar
       position="fixed"
@@ -77,12 +104,8 @@ export default function AppAppBar() {
               alignItems: "center",
             }}
           >
-            <Button color="primary" variant="text" size="small">
-              Sign in
-            </Button>
-            <Button color="primary" variant="contained" size="small">
-              Sign up
-            </Button>
+            <SignInButton />
+            <SignUpButton variant="contained" />
           </Box>
           <Box sx={{ display: { sm: "flex", md: "none" } }}>
             <IconButton aria-label="Menu button" onClick={toggleDrawer(true)}>
@@ -102,21 +125,12 @@ export default function AppAppBar() {
                   </IconButton>
                 </Box>
                 <Divider sx={{ my: 3 }} />
-                <MenuItem>Features</MenuItem>
-                <MenuItem>Testimonials</MenuItem>
-                <MenuItem>Highlights</MenuItem>
-                <MenuItem>Pricing</MenuItem>
-                <MenuItem>FAQ</MenuItem>
-                <MenuItem>Blog</MenuItem>
+                {navElementsMobile}
                 <MenuItem>
-                  <Button color="primary" variant="contained" fullWidth>
-                    Sign up
-                  </Button>
+                  <SignUpButton />
                 </MenuItem>
                 <MenuItem>
-                  <Button color="primary" variant="outlined" fullWidth>
-                    Sign in
-                  </Button>
+                  <SignInButton />
                 </MenuItem>
               </Box>
             </Drawer>
