@@ -20,7 +20,7 @@ export default async function RootLayout({ children, local = "fa" }: ReactProps)
   return (
     <html lang={local} dir={local === "fa" ? "rtl" : "ltr"}>
       <TranslationsProvider resources={resources} local={local}>
-        <Theme>
+        <Theme local={local}>
           <body className={fontClassName}>{children}</body>
         </Theme>
       </TranslationsProvider>

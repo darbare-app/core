@@ -8,7 +8,7 @@ import {
   navigationCustomizations,
   surfacesCustomizations,
 } from "./customizations";
-export default function getMPTheme(mode: PaletteMode): ThemeOptions {
+export default function getMPTheme(mode: PaletteMode, local: Local): ThemeOptions {
   return {
     ...getDesignTokens(mode),
     components: {
@@ -18,5 +18,6 @@ export default function getMPTheme(mode: PaletteMode): ThemeOptions {
       ...navigationCustomizations,
       ...surfacesCustomizations,
     },
+    direction: local === "fa" ? "rtl" : "ltr",
   };
 }

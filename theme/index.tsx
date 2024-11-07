@@ -7,6 +7,7 @@ import getMPTheme from "./getMPTheme";
 
 interface ThemeProviderProps {
   children: ReactNode;
+  local: Local;
 }
 
 export const ColorModeContext = createContext({
@@ -14,10 +15,10 @@ export const ColorModeContext = createContext({
   mode: "dark" as PaletteMode,
 });
 
-export default function CustomThemeProvider({ children }: ThemeProviderProps) {
+export default function CustomThemeProvider({ children, local }: ThemeProviderProps) {
   const [mode, setMode] = useState<PaletteMode>("light");
 
-  const theme = createTheme(getMPTheme(mode));
+  const theme = createTheme(getMPTheme(mode, local));
 
   useEffect(() => {
     const savedMode = localStorage.getItem("themeMode") as PaletteMode | null;
