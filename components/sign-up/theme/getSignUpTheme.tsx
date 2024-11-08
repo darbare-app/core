@@ -1,6 +1,6 @@
 import type {} from "@mui/material/themeCssVarsAugmentation";
 import { ThemeOptions, PaletteMode } from "@mui/material/styles";
-import { getDesignTokens } from "./themePrimitives";
+import { getDesignTokens } from "@/theme/themePrimitives";
 import {
   inputsCustomizations,
   dataDisplayCustomizations,
@@ -8,7 +8,6 @@ import {
   navigationCustomizations,
   surfacesCustomizations,
 } from "./customizations";
-
 export default function getSignUpTheme(mode: PaletteMode): ThemeOptions {
   return {
     ...getDesignTokens(mode),

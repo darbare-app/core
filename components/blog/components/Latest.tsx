@@ -163,7 +163,6 @@ function Author({ authors }: { authors: { name: string; avatar: string }[] }) {
     </Box>
   );
 }
-
 export default function Latest() {
   const [focusedCardIndex, setFocusedCardIndex] = useState<number | null>(null);
 

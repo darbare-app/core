@@ -20,7 +20,7 @@ import {
 import { TreeItem2Icon } from "@mui/x-tree-view/TreeItem2Icon";
 import { TreeItem2Provider } from "@mui/x-tree-view/TreeItem2Provider";
 import { TreeViewBaseItem } from "@mui/x-tree-view/models";
-import { Color as muiColors, useTheme } from "@mui/material/styles";
+import { useTheme } from "@mui/material/styles";
 import { HTMLAttributes, ReactNode, Ref, forwardRef } from "react";
 
 type Color = "blue" | "green";
@@ -170,7 +170,6 @@ const CustomTreeItem = forwardRef(function CustomTreeItem(
     </TreeItem2Provider>
   );
 });
-
 export default function CustomizedTreeView() {
   return (
     <Card

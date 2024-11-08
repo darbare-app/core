@@ -76,7 +76,6 @@ const logoStyle = {
   width: "64px",
   opacity: 0.3,
 };
-
 export default function Testimonials() {
   const theme = useTheme();
   const logos = theme.palette.mode === "light" ? darkLogos : whiteLogos;

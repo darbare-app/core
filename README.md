@@ -1,4 +1,4 @@
-This is an open source Coffee website project that is using [Next.js](https://nextjs.org/) project bootstrapped with [`c3`](https://developers.cloudflare.com/pages/get-started/c3).
+This is an open source Coffee website project that is using [Next.js](https://nextjs.org/) project bootstrapped with [`c3`](https://developers.cloudflare.com/pages/get-started/c3) and we are using [MUI](https://mui.com/material-ui/getting-started/templates/#free-templates) free templates as starter.
 
 ## Getting Started
 

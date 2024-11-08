@@ -1,4 +1,5 @@
 "use client";
+import { useTranslation } from "react-i18next";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Checkbox from "@mui/material/Checkbox";
@@ -12,11 +13,9 @@ import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
 import Stack from "@mui/material/Stack";
 import MuiCard from "@mui/material/Card";
-import { createTheme, ThemeProvider, styled, PaletteMode } from "@mui/material/styles";
-import getSignUpTheme from "./theme/getSignUpTheme";
+import { styled } from "@mui/material/styles";
 import { GoogleIcon, FacebookIcon } from "../CustomIcons";
-import TemplateFrame from "./TemplateFrame";
-import { FormEvent, useEffect, useState } from "react";
+import { FormEvent, useState } from "react";
 import Logo from "../Logo";
 
 const Card = styled(MuiCard)(({ theme }) => ({
@@ -41,6 +40,7 @@ const Card = styled(MuiCard)(({ theme }) => ({
 const SignUpContainer = styled(Stack)(({ theme }) => ({
   minHeight: "100%",
   padding: theme.spacing(2),
+  marginTop: 40,
   [theme.breakpoints.up("sm")]: {
     padding: theme.spacing(4),
   },
@@ -52,37 +52,13 @@ const SignUpContainer = styled(Stack)(({ theme }) => ({
 }));
 
 export default function SignUp() {
-  const [mode, setMode] = useState<PaletteMode>("light");
-  const [showCustomTheme, setShowCustomTheme] = useState(true);
-  const defaultTheme = createTheme({ palette: { mode } });
-  const SignUpTheme = createTheme(getSignUpTheme(mode));
+  const { t } = useTranslation();
   const [nameError, setNameError] = useState(false);
   const [nameErrorMessage, setNameErrorMessage] = useState("");
   const [emailError, setEmailError] = useState(false);
   const [emailErrorMessage, setEmailErrorMessage] = useState("");
   const [passwordError, setPasswordError] = useState(false);
   const [passwordErrorMessage, setPasswordErrorMessage] = useState("");
-  // This code only runs on the client side, to determine the system color preference
-  useEffect(() => {
-    // Check if there is a preferred mode in localStorage
-    const savedMode = localStorage.getItem("themeMode") as PaletteMode | null;
-    if (savedMode) {
-      setMode(savedMode);
-    } else {
-      // If no preference is found, it uses system preference
-      const systemPrefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-      setMode(systemPrefersDark ? "dark" : "light");
-    }
-  }, []);
-
-  const toggleColorMode = () => {
-    const newMode = mode === "dark" ? "light" : "dark";
-    setMode(newMode);
-    localStorage.setItem("themeMode", newMode); // Save the selected mode to localStorage
-  };
-  const toggleCustomTheme = () => {
-    setShowCustomTheme(prev => !prev);
-  };
 
   const validateInputs = () => {
     const email = document.getElementById("email") as HTMLInputElement;
@@ -93,7 +69,7 @@ export default function SignUp() {
 
     if (!email.value || !/\S+@\S+\.\S+/.test(email.value)) {
       setEmailError(true);
-      setEmailErrorMessage("Please enter a valid email address.");
+      setEmailErrorMessage(t("Please enter a valid email address."));
       isValid = false;
     } else {
       setEmailError(false);
@@ -102,7 +78,7 @@ export default function SignUp() {
 
     if (!password.value || password.value.length < 6) {
       setPasswordError(true);
-      setPasswordErrorMessage("Password must be at least 6 characters long.");
+      setPasswordErrorMessage(t("Password must be at least 6 characters long."));
       isValid = false;
     } else {
       setPasswordError(false);
@@ -111,7 +87,7 @@ export default function SignUp() {
 
     if (!name.value || name.value.length < 1) {
       setNameError(true);
-      setNameErrorMessage("Name is required.");
+      setNameErrorMessage(t("Name is required."));
       isValid = false;
     } else {
       setNameError(false);
@@ -127,127 +103,110 @@ export default function SignUp() {
       return;
     }
     const data = new FormData(event.currentTarget);
-    console.log({
-      name: data.get("name"),
-      lastName: data.get("lastName"),
-      email: data.get("email"),
-      password: data.get("password"),
-    });
   };
 
   return (
-    <TemplateFrame
-      toggleCustomTheme={toggleCustomTheme}
-      showCustomTheme={showCustomTheme}
-      mode={mode}
-      toggleColorMode={toggleColorMode}
-    >
-      <ThemeProvider theme={showCustomTheme ? SignUpTheme : defaultTheme}>
-        <CssBaseline enableColorScheme />
-        <SignUpContainer direction="column" justifyContent="space-between">
-          <Card variant="outlined">
-            <Logo />
-            <Typography
-              component="h1"
-              variant="h4"
-              sx={{ width: "100%", fontSize: "clamp(2rem, 10vw, 2.15rem)" }}
-            >
-              Sign up
-            </Typography>
-            <Box
-              component="form"
-              onSubmit={handleSubmit}
-              sx={{ display: "flex", flexDirection: "column", gap: 2 }}
-            >
-              <FormControl>
-                <FormLabel htmlFor="name">Full name</FormLabel>
-                <TextField
-                  autoComplete="name"
-                  name="name"
-                  required
-                  fullWidth
-                  id="name"
-                  placeholder="Jon Snow"
-                  error={nameError}
-                  helperText={nameErrorMessage}
-                  color={nameError ? "error" : "primary"}
-                />
-              </FormControl>
-              <FormControl>
-                <FormLabel htmlFor="email">Email</FormLabel>
-                <TextField
-                  required
-                  fullWidth
-                  id="email"
-                  placeholder="your@email.com"
-                  name="email"
-                  autoComplete="email"
-                  variant="outlined"
-                  error={emailError}
-                  helperText={emailErrorMessage}
-                  color={passwordError ? "error" : "primary"}
-                />
-              </FormControl>
-              <FormControl>
-                <FormLabel htmlFor="password">Password</FormLabel>
-                <TextField
-                  required
-                  fullWidth
-                  name="password"
-                  placeholder="••••••"
-                  type="password"
-                  id="password"
-                  autoComplete="new-password"
-                  variant="outlined"
-                  error={passwordError}
-                  helperText={passwordErrorMessage}
-                  color={passwordError ? "error" : "primary"}
-                />
-              </FormControl>
-              <FormControlLabel
-                control={<Checkbox value="allowExtraEmails" color="primary" />}
-                label="I want to receive updates via email."
+    <>
+      <CssBaseline enableColorScheme />
+      <SignUpContainer direction="column" justifyContent="space-between">
+        <Card variant="outlined">
+          <Logo />
+          <Typography
+            component="h1"
+            variant="h4"
+            sx={{ width: "100%", fontSize: "clamp(2rem, 10vw, 2.15rem)" }}
+          >
+            {t("Sign up")}
+          </Typography>
+          <Box
+            component="form"
+            onSubmit={handleSubmit}
+            sx={{ display: "flex", flexDirection: "column", gap: 2 }}
+          >
+            <FormControl>
+              <FormLabel htmlFor="name">{t("Full name")}</FormLabel>
+              <TextField
+                autoComplete="name"
+                name="name"
+                required
+                fullWidth
+                id="name"
+                placeholder={t("Jon Snow")}
+                error={nameError}
+                helperText={nameErrorMessage}
+                color={nameError ? "error" : "primary"}
               />
-              <Button type="submit" fullWidth variant="contained" onClick={validateInputs}>
-                Sign up
-              </Button>
-              <Typography sx={{ textAlign: "center" }}>
-                Already have an account?{" "}
-                <span>
-                  <Link
-                    href="/material-ui/getting-started/templates/sign-in/"
-                    variant="body2"
-                    sx={{ alignSelf: "center" }}
-                  >
-                    Sign in
-                  </Link>
-                </span>
-              </Typography>
-            </Box>
-            <Divider>
-              <Typography sx={{ color: "text.secondary" }}>or</Typography>
-            </Divider>
-            <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
-              <Button
+            </FormControl>
+            <FormControl>
+              <FormLabel htmlFor="email">{t("Email")}</FormLabel>
+              <TextField
+                required
                 fullWidth
+                id="email"
+                placeholder={t("your@email.com")}
+                name="email"
+                autoComplete="email"
                 variant="outlined"
-                onClick={() => alert("Sign up with Google")}
-                startIcon={<GoogleIcon />}
-              >
-                Sign up with Google
-              </Button>
-              <Button
+                error={emailError}
+                helperText={emailErrorMessage}
+                color={emailError ? "error" : "primary"}
+              />
+            </FormControl>
+            <FormControl>
+              <FormLabel htmlFor="password">{t("Password")}</FormLabel>
+              <TextField
+                required
                 fullWidth
+                name="password"
+                placeholder={t("••••••")}
+                type="password"
+                id="password"
+                autoComplete="new-password"
                 variant="outlined"
-                onClick={() => alert("Sign up with Facebook")}
-                startIcon={<FacebookIcon />}
-              >
-                Sign up with Facebook
-              </Button>
-            </Box>
-          </Card>
-        </SignUpContainer>
-      </ThemeProvider>
-    </TemplateFrame>
+                error={passwordError}
+                helperText={passwordErrorMessage}
+                color={passwordError ? "error" : "primary"}
+              />
+            </FormControl>
+            <FormControlLabel
+              control={<Checkbox value="allowExtraEmails" color="primary" />}
+              label={t("I want to receive updates via email.")}
+            />
+            <Button type="submit" fullWidth variant="contained" onClick={validateInputs}>
+              {t("Sign up")}
+            </Button>
+            <Typography sx={{ textAlign: "center" }}>
+              {t("Already have an account?")}{" "}
+              <span>
+                <Link href="/sign-in/" variant="body2" sx={{ alignSelf: "center" }}>
+                  {t("Sign in")}
+                </Link>
+              </span>
+            </Typography>
+          </Box>
+          <Divider>
+            <Typography sx={{ color: "text.secondary" }}>{t("or")}</Typography>
+          </Divider>
+          <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
+            <Button
+              fullWidth
+              variant="outlined"
+              onClick={() => alert(t("Sign up with Google"))}
+              startIcon={<GoogleIcon />}
+            >
+              {t("Sign up with Google")}
+            </Button>
+            <Button
+              fullWidth
+              variant="outlined"
+              onClick={() => alert(t("Sign up with Facebook"))}
+              startIcon={<FacebookIcon />}
+            >
+              {t("Sign up with Facebook")}
+            </Button>
+          </Box>
+        </Card>
+      </SignUpContainer>
+    </>
   );
 }

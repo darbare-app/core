@@ -1,4 +1,3 @@
-
 import { createTheme, ThemeProvider, PaletteMode, styled } from "@mui/material/styles";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
 import MenuItem from "@mui/material/MenuItem";
@@ -9,7 +8,7 @@ import Box from "@mui/material/Box";
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import ArrowBackRoundedIcon from "@mui/icons-material/ArrowBackRounded";
-import ToggleColorMode from "./ToggleColorMode";
+import ToggleColorMode from "../ToggleColorMode";
 import getSignUpTheme from "./theme/getSignUpTheme";
 
 const StyledAppBar = styled(AppBar)(({ theme }) => ({
@@ -34,7 +33,6 @@ interface TemplateFrameProps {
   toggleColorMode: () => void;
   children: React.ReactNode;
 }
-
 export default function TemplateFrame({
   showCustomTheme,
   toggleCustomTheme,

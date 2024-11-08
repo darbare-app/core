@@ -1,4 +1,3 @@
-
 import type {} from "@mui/material/themeCssVarsAugmentation";
 import { createTheme, ThemeOptions, alpha, PaletteMode } from "@mui/material/styles";
 
@@ -23,7 +22,6 @@ declare module "@mui/material/styles/createPalette" {
 }
 
 const customTheme = createTheme();
-
 export const brand = {
   50: "hsl(210, 100%, 97%)",
   100: "hsl(210, 100%, 90%)",
@@ -36,7 +34,6 @@ export const brand = {
   800: "hsl(210, 100%, 16%)",
   900: "hsl(210, 100%, 21%)",
 };
-
 export const gray = {
   50: "hsl(220, 60%, 99%)",
   100: "hsl(220, 35%, 94%)",
@@ -49,7 +46,6 @@ export const gray = {
   800: "hsl(220, 25%, 10%)",
   900: "hsl(220, 30%, 5%)",
 };
-
 export const green = {
   50: "hsl(120, 80%, 98%)",
   100: "hsl(120, 75%, 94%)",
@@ -62,7 +58,6 @@ export const green = {
   800: "hsl(120, 84%, 10%)",
   900: "hsl(120, 87%, 6%)",
 };
-
 export const orange = {
   50: "hsl(45, 100%, 97%)",
   100: "hsl(45, 92%, 90%)",
@@ -75,7 +70,6 @@ export const orange = {
   800: "hsl(45, 95%, 16%)",
   900: "hsl(45, 93%, 12%)",
 };
-
 export const red = {
   50: "hsl(0, 100%, 97%)",
   100: "hsl(0, 92%, 90%)",
@@ -207,7 +201,6 @@ const getDesignTokens = (mode: PaletteMode) => ({
     borderRadius: 12,
   },
 });
-
 export default function getSignUpTheme(mode: PaletteMode): ThemeOptions {
   return {
     ...getDesignTokens(mode),

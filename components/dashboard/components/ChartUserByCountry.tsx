@@ -115,7 +115,6 @@ const colors = [
   "hsl(220, 20%, 35%)",
   "hsl(220, 20%, 25%)",
 ];
-
 export default function ChartUserByCountry() {
   return (
     <Card

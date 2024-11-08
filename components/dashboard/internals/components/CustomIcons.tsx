@@ -1,5 +1,4 @@
 import SvgIcon from "@mui/material/SvgIcon";
-
 export function IndiaFlag() {
   return (
     <SvgIcon>
@@ -36,7 +35,6 @@ export function IndiaFlag() {
     </SvgIcon>
   );
 }
-
 export function UsaFlag() {
   return (
     <SvgIcon>
@@ -196,7 +194,6 @@ export function BrazilFlag() {
     </SvgIcon>
   );
 }
-
 export function GlobeFlag() {
   return (
     <SvgIcon>

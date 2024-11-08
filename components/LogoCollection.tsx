@@ -28,7 +28,6 @@ const logoStyle = {
   margin: "0 32px",
   opacity: 0.7,
 };
-
 export default function LogoCollection() {
   const theme = useTheme();
   const logos = theme.palette.mode === "light" ? darkLogos : whiteLogos;

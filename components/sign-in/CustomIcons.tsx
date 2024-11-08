@@ -1,6 +1,4 @@
-
 import SvgIcon from "@mui/material/SvgIcon";
-
 
 export function FacebookIcon() {
   return (
@@ -37,7 +35,6 @@ export function FacebookIcon() {
     </SvgIcon>
   );
 }
-
 export function GoogleIcon() {
   return (
     <SvgIcon>
