@@ -37,8 +37,8 @@ function SignUpButton(props: ButtonProps) {
   const { t } = useTranslation();
   const getLink = useLinkAddress();
   return (
-    <Button href={getLink("signIn")} color="primary" variant="contained" {...props}>
-      {t("signUp")}
+    <Button href={getLink("signUp")} color="primary" variant="contained" {...props}>
+      {t("Sign Up")}
     </Button>
   );
 }
@@ -47,8 +47,8 @@ function SignInButton(props: ButtonProps) {
   const { t } = useTranslation();
   const getLink = useLinkAddress();
   return (
-    <Button href={getLink("signUp")} color="primary" variant="outlined" {...props}>
-      {t("signIn")}
+    <Button href={getLink("signIn")} color="primary" variant="outlined" {...props}>
+      {t("Sign In")}
     </Button>
   );
 }
@@ -69,11 +69,11 @@ export default function AppAppBar() {
 
   const navItems: navItem[] = [
     {
-      name: t("blog"),
+      name: t("Blog"),
       link: getLink("blog"),
     },
     {
-      name: t("dashboard"),
+      name: t("Dashboard"),
       link: getLink("dashboard"),
     },
   ];

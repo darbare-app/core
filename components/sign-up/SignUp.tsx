@@ -1,4 +1,5 @@
 "use client";
+import { useTranslation } from "react-i18next";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Checkbox from "@mui/material/Checkbox";
@@ -39,6 +40,7 @@ const Card = styled(MuiCard)(({ theme }) => ({
 const SignUpContainer = styled(Stack)(({ theme }) => ({
   minHeight: "100%",
   padding: theme.spacing(2),
+  marginTop: 40,
   [theme.breakpoints.up("sm")]: {
     padding: theme.spacing(4),
   },
@@ -48,6 +50,7 @@ const SignUpContainer = styled(Stack)(({ theme }) => ({
     backgroundImage: "radial-gradient(at 50% 50%, hsla(210, 100%, 16%, 0.5), hsl(220, 30%, 5%))",
   }),
 }));
+
 export default function SignUp() {
   const [nameError, setNameError] = useState(false);
   const [nameErrorMessage, setNameErrorMessage] = useState("");
@@ -65,7 +68,7 @@ export default function SignUp() {
 
     if (!email.value || !/\S+@\S+\.\S+/.test(email.value)) {
       setEmailError(true);
-      setEmailErrorMessage("Please enter a valid email address.");
+      setEmailErrorMessage(t("Please enter a valid email address."));
       isValid = false;
     } else {
       setEmailError(false);
@@ -74,7 +77,7 @@ export default function SignUp() {
 
     if (!password.value || password.value.length < 6) {
       setPasswordError(true);
-      setPasswordErrorMessage("Password must be at least 6 characters long.");
+      setPasswordErrorMessage(t("Password must be at least 6 characters long."));
       isValid = false;
     } else {
       setPasswordError(false);
@@ -83,7 +86,7 @@ export default function SignUp() {
 
     if (!name.value || name.value.length < 1) {
       setNameError(true);
-      setNameErrorMessage("Name is required.");
+      setNameErrorMessage(t("Name is required."));
       isValid = false;
     } else {
       setNameError(false);

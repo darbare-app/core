@@ -7,12 +7,12 @@ import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import SelectContent from "./SelectContent";
 import MenuContent from "./MenuContent";
-import CardAlert from "./CardAlert";
 import OptionsMenu from "./OptionsMenu";
+import Logo from "@/components/Logo";
 
 const drawerWidth = 240;
 
-const Drawer = styled(MuiDrawer)({
+const Drawer = styled(MuiDrawer)(({ theme }) => ({
   width: drawerWidth,
   flexShrink: 0,
   boxSizing: "border-box",
@@ -20,17 +20,25 @@ const Drawer = styled(MuiDrawer)({
   [`& .${drawerClasses.paper}`]: {
     width: drawerWidth,
     boxSizing: "border-box",
+    backgroundColor: theme.palette.background.paper,
+    // Apply positioning based on HTML's dir attribute
+    '[dir="rtl"] &': {
+      right: 0,
+      left: "auto",
+    },
+    '[dir="ltr"] &': {
+      left: 0,
+      right: "auto",
+    },
   },
-});
+}));
+
 export default function SideMenu() {
   return (
     <Drawer
       variant="permanent"
       sx={{
         display: { xs: "none", md: "block" },
-        [`& .${drawerClasses.paper}`]: {
-          backgroundColor: "background.paper",
-        },
       }}
     >
       <Box
@@ -40,11 +48,10 @@ export default function SideMenu() {
           p: 1.5,
         }}
       >
-        <SelectContent />
+        <Logo />
       </Box>
       <Divider />
       <MenuContent />
-      <CardAlert />
       <Stack
         direction="row"
         sx={{
