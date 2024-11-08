@@ -1,11 +1,11 @@
+import TranslationsProvider from "@/components/TranslationsProvider";
+import Theme from "@/theme";
+import { ReactProps } from "@/types/defaultProps";
 import type { Metadata } from "next";
 import { Inter, Vazirmatn } from "next/font/google";
-import "./globals.css";
-import TranslationsProvider from "@/components/TranslationsProvider";
-import { ReactProps } from "@/types/defaultProps";
 import initTranslations from "../i18n";
-import Theme from "@/theme";
-
+import "./globals.css";
+export const runtime = "edge";
 const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "Darbare App",
