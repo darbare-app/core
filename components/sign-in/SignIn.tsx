@@ -1,5 +1,5 @@
 "use client";
-
+import { useTranslation } from "react-i18next";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Checkbox from "@mui/material/Checkbox";
@@ -16,7 +16,6 @@ import MuiCard from "@mui/material/Card";
 import { styled } from "@mui/material/styles";
 import ForgotPassword from "./ForgotPassword";
 import { GoogleIcon, FacebookIcon } from "./CustomIcons";
-import AppTheme from "../shared-theme/AppTheme";
 import ColorModeSelect from "../shared-theme/ColorModeSelect";
 import Logo from "../Logo";
 import { FormEvent, useState } from "react";
@@ -59,7 +58,9 @@ const SignInContainer = styled(Stack)(({ theme }) => ({
     }),
   },
 }));
+
 export default function SignIn(props: { disableCustomTheme?: boolean }) {
+  const { t } = useTranslation();
   const [emailError, setEmailError] = useState(false);
   const [emailErrorMessage, setEmailErrorMessage] = useState("");
   const [passwordError, setPasswordError] = useState(false);
@@ -90,7 +91,7 @@ export default function SignIn(props: { disableCustomTheme?: boolean }) {
 
     if (!email.value || !/\S+@\S+\.\S+/.test(email.value)) {
       setEmailError(true);
-      setEmailErrorMessage("Please enter a valid email address.");
+      setEmailErrorMessage(t("Please enter a valid email address."));
       isValid = false;
     } else {
       setEmailError(false);
@@ -99,7 +100,7 @@ export default function SignIn(props: { disableCustomTheme?: boolean }) {
 
     if (!password.value || password.value.length < 6) {
       setPasswordError(true);
-      setPasswordErrorMessage("Password must be at least 6 characters long.");
+      setPasswordErrorMessage(t("Password must be at least 6 characters long."));
       isValid = false;
     } else {
       setPasswordError(false);
@@ -121,7 +122,7 @@ export default function SignIn(props: { disableCustomTheme?: boolean }) {
             variant="h4"
             sx={{ width: "100%", fontSize: "clamp(2rem, 10vw, 2.15rem)" }}
           >
-            Sign in
+            {t("Sign in")}
           </Typography>
           <Box
             component="form"
@@ -135,14 +136,14 @@ export default function SignIn(props: { disableCustomTheme?: boolean }) {
             }}
           >
             <FormControl>
-              <FormLabel htmlFor="email">Email</FormLabel>
+              <FormLabel htmlFor="email">{t("Email")}</FormLabel>
               <TextField
                 error={emailError}
                 helperText={emailErrorMessage}
                 id="email"
                 type="email"
                 name="email"
-                placeholder="your@email.com"
+                placeholder={t("your@email.com")}
                 autoComplete="email"
                 autoFocus
                 required
@@ -154,7 +155,7 @@ export default function SignIn(props: { disableCustomTheme?: boolean }) {
             </FormControl>
             <FormControl>
               <Box sx={{ display: "flex", justifyContent: "space-between" }}>
-                <FormLabel htmlFor="password">Password</FormLabel>
+                <FormLabel htmlFor="password">{t("Password")}</FormLabel>
                 <Link
                   component="button"
                   type="button"
@@ -162,18 +163,17 @@ export default function SignIn(props: { disableCustomTheme?: boolean }) {
                   variant="body2"
                   sx={{ alignSelf: "baseline" }}
                 >
-                  Forgot your password?
+                  {t("Forgot your password?")}
                 </Link>
               </Box>
               <TextField
                 error={passwordError}
                 helperText={passwordErrorMessage}
                 name="password"
-                placeholder="••••••"
+                placeholder={t("••••••")}
                 type="password"
                 id="password"
                 autoComplete="current-password"
-                autoFocus
                 required
                 fullWidth
                 variant="outlined"
@@ -182,38 +182,38 @@ export default function SignIn(props: { disableCustomTheme?: boolean }) {
             </FormControl>
             <FormControlLabel
               control={<Checkbox value="remember" color="primary" />}
-              label="Remember me"
+              label={t("Remember me")}
             />
             <ForgotPassword open={open} handleClose={handleClose} />
             <Button type="submit" fullWidth variant="contained" onClick={validateInputs}>
-              Sign in
+              {t("Sign in")}
             </Button>
             <Typography sx={{ textAlign: "center" }}>
-              Don&apos;t have an account?{" "}
+              {t("Don't have an account?")}{" "}
               <span>
                 <Link href="/sign-up" variant="body2" sx={{ alignSelf: "center" }}>
-                  Sign up
+                  {t("Sign up")}
                 </Link>
               </span>
             </Typography>
           </Box>
-          <Divider>or</Divider>
+          <Divider>{t("or")}</Divider>
           <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
             <Button
               fullWidth
               variant="outlined"
-              onClick={() => alert("Sign in with Google")}
+              onClick={() => alert(t("Sign in with Google"))}
               startIcon={<GoogleIcon />}
             >
-              Sign in with Google
+              {t("Sign in with Google")}
             </Button>
             <Button
               fullWidth
               variant="outlined"
-              onClick={() => alert("Sign in with Facebook")}
+              onClick={() => alert(t("Sign in with Facebook"))}
               startIcon={<FacebookIcon />}
             >
-              Sign in with Facebook
+              {t("Sign in with Facebook")}
             </Button>
           </Box>
         </Card>

@@ -52,6 +52,7 @@ const SignUpContainer = styled(Stack)(({ theme }) => ({
 }));
 
 export default function SignUp() {
+  const { t } = useTranslation();
   const [nameError, setNameError] = useState(false);
   const [nameErrorMessage, setNameErrorMessage] = useState("");
   const [emailError, setEmailError] = useState(false);
@@ -115,7 +116,7 @@ export default function SignUp() {
             variant="h4"
             sx={{ width: "100%", fontSize: "clamp(2rem, 10vw, 2.15rem)" }}
           >
-            Sign up
+            {t("Sign up")}
           </Typography>
           <Box
             component="form"
@@ -123,41 +124,41 @@ export default function SignUp() {
             sx={{ display: "flex", flexDirection: "column", gap: 2 }}
           >
             <FormControl>
-              <FormLabel htmlFor="name">Full name</FormLabel>
+              <FormLabel htmlFor="name">{t("Full name")}</FormLabel>
               <TextField
                 autoComplete="name"
                 name="name"
                 required
                 fullWidth
                 id="name"
-                placeholder="Jon Snow"
+                placeholder={t("Jon Snow")}
                 error={nameError}
                 helperText={nameErrorMessage}
                 color={nameError ? "error" : "primary"}
               />
             </FormControl>
             <FormControl>
-              <FormLabel htmlFor="email">Email</FormLabel>
+              <FormLabel htmlFor="email">{t("Email")}</FormLabel>
               <TextField
                 required
                 fullWidth
                 id="email"
-                placeholder="your@email.com"
+                placeholder={t("your@email.com")}
                 name="email"
                 autoComplete="email"
                 variant="outlined"
                 error={emailError}
                 helperText={emailErrorMessage}
-                color={passwordError ? "error" : "primary"}
+                color={emailError ? "error" : "primary"}
               />
             </FormControl>
             <FormControl>
-              <FormLabel htmlFor="password">Password</FormLabel>
+              <FormLabel htmlFor="password">{t("Password")}</FormLabel>
               <TextField
                 required
                 fullWidth
                 name="password"
-                placeholder="••••••"
+                placeholder={t("••••••")}
                 type="password"
                 id="password"
                 autoComplete="new-password"
@@ -169,43 +170,39 @@ export default function SignUp() {
             </FormControl>
             <FormControlLabel
               control={<Checkbox value="allowExtraEmails" color="primary" />}
-              label="I want to receive updates via email."
+              label={t("I want to receive updates via email.")}
             />
             <Button type="submit" fullWidth variant="contained" onClick={validateInputs}>
-              Sign up
+              {t("Sign up")}
             </Button>
             <Typography sx={{ textAlign: "center" }}>
-              Already have an account?{" "}
+              {t("Already have an account?")}{" "}
               <span>
-                <Link
-                  href="/material-ui/getting-started/templates/sign-in/"
-                  variant="body2"
-                  sx={{ alignSelf: "center" }}
-                >
-                  Sign in
+                <Link href="/sign-in/" variant="body2" sx={{ alignSelf: "center" }}>
+                  {t("Sign in")}
                 </Link>
               </span>
             </Typography>
           </Box>
           <Divider>
-            <Typography sx={{ color: "text.secondary" }}>or</Typography>
+            <Typography sx={{ color: "text.secondary" }}>{t("or")}</Typography>
           </Divider>
           <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
             <Button
               fullWidth
               variant="outlined"
-              onClick={() => alert("Sign up with Google")}
+              onClick={() => alert(t("Sign up with Google"))}
               startIcon={<GoogleIcon />}
             >
-              Sign up with Google
+              {t("Sign up with Google")}
             </Button>
             <Button
               fullWidth
               variant="outlined"
-              onClick={() => alert("Sign up with Facebook")}
+              onClick={() => alert(t("Sign up with Facebook"))}
               startIcon={<FacebookIcon />}
             >
-              Sign up with Facebook
+              {t("Sign up with Facebook")}
             </Button>
           </Box>
         </Card>

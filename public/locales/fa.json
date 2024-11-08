@@ -14,6 +14,8 @@
   "Password must be at least 6 characters long.": "رمز عبور باید حداقل ۶ کاراکتر باشد.",
   "Please enter a valid email address.": "لطفاً یک آدرس ایمیل معتبر وارد کنید.",
   "Remember me": "مرا به خاطر بسپار",
+  "Sign In": "ورود",
+  "Sign Up": "ثبت نام",
   "Sign in": "ورود",
   "Sign in with Facebook": "ورود با فیس‌بوک",
   "Sign in with Google": "ورود با گوگل",
