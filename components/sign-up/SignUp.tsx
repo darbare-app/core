@@ -116,7 +116,7 @@ export default function SignUp() {
             variant="h4"
             sx={{ width: "100%", fontSize: "clamp(2rem, 10vw, 2.15rem)" }}
           >
-            {t("Sign up")}
+            {t("Sign Up")}
           </Typography>
           <Box
             component="form"
@@ -173,13 +173,13 @@ export default function SignUp() {
               label={t("I want to receive updates via email.")}
             />
             <Button type="submit" fullWidth variant="contained" onClick={validateInputs}>
-              {t("Sign up")}
+              {t("Sign Up")}
             </Button>
             <Typography sx={{ textAlign: "center" }}>
               {t("Already have an account?")}{" "}
               <span>
                 <Link href="/sign-in/" variant="body2" sx={{ alignSelf: "center" }}>
-                  {t("Sign in")}
+                  {t("Sign In")}
                 </Link>
               </span>
             </Typography>
@@ -191,18 +191,18 @@ export default function SignUp() {
             <Button
               fullWidth
               variant="outlined"
-              onClick={() => alert(t("Sign up with Google"))}
+              onClick={() => alert(t("Sign Up with Google"))}
               startIcon={<GoogleIcon />}
             >
-              {t("Sign up with Google")}
+              {t("Sign Up with Google")}
             </Button>
             <Button
               fullWidth
               variant="outlined"
-              onClick={() => alert(t("Sign up with Facebook"))}
+              onClick={() => alert(t("Sign Up with Facebook"))}
               startIcon={<FacebookIcon />}
             >
-              {t("Sign up with Facebook")}
+              {t("Sign Up with Facebook")}
             </Button>
           </Box>
         </Card>

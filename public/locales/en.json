@@ -15,13 +15,11 @@
   "Please enter a valid email address.": "Please enter a valid email address.",
   "Remember me": "Remember me",
   "Sign In": "Sign In",
+  "Sign In with Facebook": "Sign In with Facebook",
+  "Sign In with Google": "Sign In with Google",
   "Sign Up": "Sign Up",
-  "Sign in": "Sign in",
-  "Sign in with Facebook": "Sign in with Facebook",
-  "Sign in with Google": "Sign in with Google",
-  "Sign up": "Sign up",
-  "Sign up with Facebook": "Sign up with Facebook",
-  "Sign up with Google": "Sign up with Google",
+  "Sign Up with Facebook": "Sign Up with Facebook",
+  "Sign Up with Google": "Sign Up with Google",
   "or": "or",
   "your@email.com": "your@email.com"
 }

@@ -15,13 +15,11 @@
   "Please enter a valid email address.": "لطفاً یک آدرس ایمیل معتبر وارد کنید.",
   "Remember me": "مرا به خاطر بسپار",
   "Sign In": "ورود",
+  "Sign In with Facebook": "ورود با فیس‌بوک",
+  "Sign In with Google": "ورود با گوگل",
   "Sign Up": "ثبت نام",
-  "Sign in": "ورود",
-  "Sign in with Facebook": "ورود با فیس‌بوک",
-  "Sign in with Google": "ورود با گوگل",
-  "Sign up": "ثبت نام",
-  "Sign up with Facebook": "ثبت نام با فیس‌بوک",
-  "Sign up with Google": "ثبت نام با گوگل",
+  "Sign Up with Facebook": "ثبت نام با فیس‌بوک",
+  "Sign Up with Google": "ثبت نام با گوگل",
   "or": "یا",
   "your@email.com": "your@email.com"
 }

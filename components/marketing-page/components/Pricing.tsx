@@ -17,7 +17,7 @@ const tiers = [
     title: "Free",
     price: "0",
     description: ["10 users included", "2 GB of storage", "Help center access", "Email support"],
-    buttonText: "Sign up for free",
+    buttonText: "Sign Up for free",
     buttonVariant: "outlined",
     buttonColor: "primary",
   },

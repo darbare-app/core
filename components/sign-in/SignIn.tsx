@@ -122,7 +122,7 @@ export default function SignIn(props: { disableCustomTheme?: boolean }) {
             variant="h4"
             sx={{ width: "100%", fontSize: "clamp(2rem, 10vw, 2.15rem)" }}
           >
-            {t("Sign in")}
+            {t("Sign In")}
           </Typography>
           <Box
             component="form"
@@ -186,13 +186,13 @@ export default function SignIn(props: { disableCustomTheme?: boolean }) {
             />
             <ForgotPassword open={open} handleClose={handleClose} />
             <Button type="submit" fullWidth variant="contained" onClick={validateInputs}>
-              {t("Sign in")}
+              {t("Sign In")}
             </Button>
             <Typography sx={{ textAlign: "center" }}>
               {t("Don't have an account?")}{" "}
               <span>
                 <Link href="/sign-up" variant="body2" sx={{ alignSelf: "center" }}>
-                  {t("Sign up")}
+                  {t("Sign Up")}
                 </Link>
               </span>
             </Typography>
@@ -202,18 +202,18 @@ export default function SignIn(props: { disableCustomTheme?: boolean }) {
             <Button
               fullWidth
               variant="outlined"
-              onClick={() => alert(t("Sign in with Google"))}
+              onClick={() => alert(t("Sign In with Google"))}
               startIcon={<GoogleIcon />}
             >
-              {t("Sign in with Google")}
+              {t("Sign In with Google")}
             </Button>
             <Button
               fullWidth
               variant="outlined"
-              onClick={() => alert(t("Sign in with Facebook"))}
+              onClick={() => alert(t("Sign In with Facebook"))}
               startIcon={<FacebookIcon />}
             >
-              {t("Sign in with Facebook")}
+              {t("Sign In with Facebook")}
             </Button>
           </Box>
         </Card>
