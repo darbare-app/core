@@ -10,11 +10,7 @@ import rtlPlugin from "stylis-plugin-rtl";
 import { ReactProps } from "@/types/defaultProps";
 import { useTranslation } from "react-i18next";
 
-interface RtlLayoutProps extends ReactProps {
-  isRtl: boolean;
-}
-
-export default function RtlLayout({ children }: RtlLayoutProps) {
+export default function RtlLayout({ children }: ReactProps) {
   const { i18n } = useTranslation();
 
   useEffect(() => {
@@ -23,9 +19,9 @@ export default function RtlLayout({ children }: RtlLayoutProps) {
   }, [i18n.language]);
 
   const cacheRtl = createCache({
-    key: i18n.language === 'fa' ? "rtl" : "css",
+    key: i18n.language === "fa" ? "rtl" : "css",
     prepend: true,
-    stylisPlugins: i18n.language === 'fa' ? [rtlPlugin] : [],
+    stylisPlugins: i18n.language === "fa" ? [rtlPlugin] : [],
   });
 
   return <CacheProvider value={cacheRtl}>{children}</CacheProvider>;
