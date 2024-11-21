@@ -11,8 +11,6 @@ export default function ToggleColorMode({ mode, toggleColorMode, ...props }: Tog
   return (
     <IconButton
       onClick={toggleColorMode}
-      color="primary"
-      size="small"
       aria-label="Theme toggle button"
       {...props}
     >
