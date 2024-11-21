@@ -5,24 +5,37 @@ import type { Metadata } from "next";
 import { Inter, Vazirmatn } from "next/font/google";
 import initTranslations from "../i18n";
 import "./globals.css";
+import RtlLayout from "@/components/RtlLayout";
+
 export const runtime = "edge";
-const inter = Inter({ subsets: ["latin"] });
+
 export const metadata: Metadata = {
-  title: "Darbare App",
-  description: "Simple Coffee Shop app",
+  title: "کافه درباره",
+  description: "کافه ای در باره من و تو",
 };
+
+// fonts
+const inter = Inter({ subsets: ["latin"] });
 const vazirmatn = Vazirmatn({ subsets: ["arabic"] });
 
-export default async function RootLayout({ children, local = "fa" }: ReactProps) {
+interface RootLayoutProps extends ReactProps {
+  params: { local: "fa" | "en" };
+}
+
+export default async function RootLayout({ children, params: { local } }: RootLayoutProps) {
   const { resources } = await initTranslations();
-  const fontClassName = local === "fa" ? vazirmatn.className : inter.className;
+  const isFa = local === "fa";
+  const fontClassName = isFa ? vazirmatn.className : inter.className;
+  
 
   return (
-    <html lang={local} dir={local === "fa" ? "rtl" : "ltr"}>
+    <html lang={local} dir={isFa ? "rtl" : "ltr"}>
       <TranslationsProvider resources={resources} local={local}>
-        <Theme local={local}>
-          <body className={fontClassName}>{children}</body>
-        </Theme>
+        <RtlLayout>
+          <Theme local={local}>
+            <body className={fontClassName}>{children}</body>
+          </Theme>
+        </RtlLayout>
       </TranslationsProvider>
     </html>
   );
