@@ -5,12 +5,13 @@ import { Box, Divider } from "@mui/material";
 import Menu from "./components/Menu";
 import { styled } from "@mui/system";
 import { tabItems } from "@/mocks/menu";
+import Hero from "./components/Hero";
 
 const StyledMenu = styled(Menu)(() => ({
-  marginTop: "5rem !important",
 }));
 
 const Wrapper = styled(Box)(() => ({
+  marginTop: "7rem !important",
   maxWidth: "1150px",
   margin: "auto",
 }));
@@ -20,6 +21,7 @@ export default function MarketingPage() {
     <Wrapper>
       <CssBaseline enableColorScheme />
       <AppAppBar />
+      <Hero />
       <StyledMenu tabItems={tabItems} />
       <Divider />
       <Footer />
