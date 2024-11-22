@@ -59,7 +59,7 @@ const SignInContainer = styled(Stack)(({ theme }) => ({
   },
 }));
 
-export default function SignIn(props: { disableCustomTheme?: boolean }) {
+export default function SignIn() {
   const { t } = useTranslation();
   const [emailError, setEmailError] = useState(false);
   const [emailErrorMessage, setEmailErrorMessage] = useState("");
