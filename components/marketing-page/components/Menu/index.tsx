@@ -22,7 +22,7 @@ const TabsWrapper = styled(Tabs)(() => ({
   overflow: "auto",
 }));
 
-const Wrapper = styled(Box)(() => ({ width: "100%" }));
+const Wrapper = styled(Box)(() => ({ width: "100%", marginTop: "1rem" }));
 
 type ReducerInitVal = [JSX.Element[], ReactNode[]];
 
@@ -48,9 +48,9 @@ export default function Menu({ tabItems, ...props }: MenuProps) {
 
       const one =
         prev[1].length === 0
-          ? array[currentTab].menuItems.map(menuItem => (
-              <Grid2 size={{ sm: 4, md: 3, xs: 12 }}>
-                <MenuItem key={menuItem.id} {...menuItem} />
+          ? array[currentTab].menuItems.map((menuItem, index) => (
+              <Grid2 key={index} size={{ sm: 4, md: 3, xs: 12 }}>
+                <MenuItem {...menuItem} />
               </Grid2>
             ))
           : prev[1];
