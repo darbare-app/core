@@ -12,16 +12,11 @@ export default function ToggleColorMode({ mode, toggleColorMode, ...props }: Tog
   return (
     <IconButton
       onClick={toggleColorMode}
-      size="small"
       color="primary"
       aria-label="Theme toggle button"
       {...props}
     >
-      {mode === "dark" ? (
-        <WbSunnyRoundedIcon fontSize="small" />
-      ) : (
-        <ModeNightRoundedIcon fontSize="small" />
-      )}
+      {mode === "dark" ? <WbSunnyRoundedIcon /> : <ModeNightRoundedIcon />}
     </IconButton>
   );
 }

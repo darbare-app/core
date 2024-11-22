@@ -115,7 +115,7 @@ export default function AppAppBar() {
               mode={mode}
               toggleColorMode={toggleColorMode}
             />
-            <ToggleLang size="small" />
+            <ToggleLang />
           </Box>
 
           <Box sx={{ display: { sm: "flex", md: "none" } }}>
