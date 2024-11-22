@@ -117,6 +117,7 @@ export default function AppAppBar() {
             />
             <ToggleLang size="small" />
           </Box>
+
           <Box sx={{ display: { sm: "flex", md: "none" } }}>
             <IconButton aria-label="Menu button" onClick={toggleDrawer(true)}>
               <MenuIcon />
@@ -139,10 +140,10 @@ export default function AppAppBar() {
 
                 {navElementsMobile}
                 <MenuItem>
-                  <SignUpButton />
+                  <SignUpButton fullWidth />
                 </MenuItem>
                 <MenuItem>
-                  <SignInButton />
+                  <SignInButton fullWidth />
                 </MenuItem>
               </Box>
             </Drawer>
