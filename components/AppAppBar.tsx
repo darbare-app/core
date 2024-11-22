@@ -115,7 +115,7 @@ export default function AppAppBar() {
               mode={mode}
               toggleColorMode={toggleColorMode}
             />
-            <ToggleLang />
+            <ToggleLang size="small" />
           </Box>
           <Box sx={{ display: { sm: "flex", md: "none" } }}>
             <IconButton aria-label="Menu button" onClick={toggleDrawer(true)}>
