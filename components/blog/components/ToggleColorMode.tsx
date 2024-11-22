@@ -7,13 +7,10 @@ interface ToggleColorModeProps extends IconButtonProps {
   mode: PaletteMode;
   toggleColorMode: () => void;
 }
+
 export default function ToggleColorMode({ mode, toggleColorMode, ...props }: ToggleColorModeProps) {
   return (
-    <IconButton
-      onClick={toggleColorMode}
-      aria-label="Theme toggle button"
-      {...props}
-    >
+    <IconButton onClick={toggleColorMode} aria-label="Theme toggle button" {...props}>
       {mode === "dark" ? (
         <WbSunnyRoundedIcon fontSize="small" />
       ) : (
