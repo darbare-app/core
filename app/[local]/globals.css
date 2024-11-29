@@ -1,8 +1,11 @@
+@import url("../../public/styles/fonts.css");
+
 :root {
-  --font-mono: ui-monospace, Menlo, Monaco, "Cascadia Mono", "Segoe UI Mono", "Roboto Mono",
+  --font-mono: "Vazir", ui-monospace, Menlo, Monaco, "Cascadia Mono", "Segoe UI Mono", "Roboto Mono",
     "Oxygen Mono", "Ubuntu Monospace", "Source Code Pro", "Fira Mono", "Droid Sans Mono",
-    "Courier New", monospace;
+    "Courier New", monospace !important;
 }
+
 
 * {
   box-sizing: border-box;
