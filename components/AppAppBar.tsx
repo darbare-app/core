@@ -1,3 +1,4 @@
+"use client";
 import { useContext, useState } from "react";
 import { styled, alpha } from "@mui/material/styles";
 import Box from "@mui/material/Box";
@@ -13,11 +14,11 @@ import MenuIcon from "@mui/icons-material/Menu";
 import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
 import Logo from "@/components/Logo";
 import { useTranslation } from "react-i18next";
-import useLinkAddress from "@/hooks/useLinkAddress";
 import Link from "next/link";
 import { ColorModeContext } from "@/theme";
 import ToggleColorMode from "./ToggleColorMode";
 import ToggleLang from "./ToggleLang";
+import { getLink } from "@/utils/helpers";
 
 const StyledToolbar = styled(Toolbar)(({ theme }) => ({
   display: "flex",
@@ -35,7 +36,6 @@ const StyledToolbar = styled(Toolbar)(({ theme }) => ({
 
 function SignUpButton(props: ButtonProps) {
   const { t } = useTranslation();
-  const getLink = useLinkAddress();
   return (
     <Button href={getLink("signUp")} color="primary" variant="contained" {...props}>
       {t("Sign Up")}
@@ -45,7 +45,6 @@ function SignUpButton(props: ButtonProps) {
 
 function SignInButton(props: ButtonProps) {
   const { t } = useTranslation();
-  const getLink = useLinkAddress();
   return (
     <Button href={getLink("signIn")} color="primary" variant="outlined" {...props}>
       {t("Sign In")}
@@ -60,7 +59,6 @@ export interface navItem {
 export default function AppAppBar() {
   const [open, setOpen] = useState(false);
   const { t } = useTranslation();
-  const getLink = useLinkAddress();
   const { toggleColorMode, mode } = useContext(ColorModeContext);
 
   const toggleDrawer = (newOpen: boolean) => () => {
