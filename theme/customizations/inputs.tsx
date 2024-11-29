@@ -3,10 +3,8 @@ import { outlinedInputClasses } from "@mui/material/OutlinedInput";
 import { svgIconClasses } from "@mui/material/SvgIcon";
 import { toggleButtonGroupClasses } from "@mui/material/ToggleButtonGroup";
 import { toggleButtonClasses } from "@mui/material/ToggleButton";
-import CheckBoxOutlineBlankRoundedIcon from "@mui/icons-material/CheckBoxOutlineBlankRounded";
-import CheckRoundedIcon from "@mui/icons-material/CheckRounded";
-import RemoveRoundedIcon from "@mui/icons-material/RemoveRounded";
 import { gray, brand } from "@/theme/themePrimitives";
+
 export const inputsCustomizations: Components<Theme> = {
   MuiButtonBase: {
     defaultProps: {
@@ -310,13 +308,15 @@ export const inputsCustomizations: Components<Theme> = {
   MuiCheckbox: {
     defaultProps: {
       disableRipple: true,
-      icon: <CheckBoxOutlineBlankRoundedIcon sx={{ color: "hsla(210, 0%, 0%, 0.0)" }} />,
-      checkedIcon: <CheckRoundedIcon sx={{ height: 14, width: 14 }} />,
-      indeterminateIcon: <RemoveRoundedIcon sx={{ height: 14, width: 14 }} />,
+      // TODO: Report this issue to next and mui community
+      // icon: <CheckBoxOutlineBlankRoundedIcon sx={{ color: "hsla(210, 0%, 0%, 0.0)" }}  />,
+      // checkedIcon:  <CheckRoundedIcon sx={{ height: 14, width: 14 }} />,
+      // indeterminateIcon:  <RemoveRoundedIcon sx={{ height: 14, width: 14 }} />,
     },
     styleOverrides: {
       root: ({ theme }) => ({
         margin: 10,
+
         height: 16,
         width: 16,
         borderRadius: 5,
