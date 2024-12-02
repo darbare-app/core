@@ -11,6 +11,7 @@ import FacebookIcon from "@mui/icons-material/GitHub";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import TwitterIcon from "@mui/icons-material/X";
 import Logo from "@/components/Logo";
+import { Divider } from "@mui/material";
 
 function Copyright() {
   return (
@@ -32,7 +33,7 @@ export default function Footer() {
         flexDirection: "column",
         alignItems: "center",
         gap: { xs: 4, sm: 8 },
-        py: { xs: 8, sm: 10 },
+        py: { xs: 4, sm: 10 },
         textAlign: { sm: "center", md: "left" },
       }}
     >
@@ -44,6 +45,8 @@ export default function Footer() {
           justifyContent: "space-between",
         }}
       >
+        <Divider sx={{ mb: 1 }} />
+
         <Box
           sx={{
             display: "flex",
