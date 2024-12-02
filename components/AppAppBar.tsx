@@ -132,6 +132,15 @@ export default function AppAppBar() {
                   <IconButton onClick={toggleDrawer(false)}>
                     <CloseRoundedIcon />
                   </IconButton>
+
+                  <Box>
+                    <ToggleColorMode
+                      data-screenshot="toggle-mode"
+                      mode={mode}
+                      toggleColorMode={toggleColorMode}
+                    />
+                    <ToggleLang sx={{ ml: "1rem" }} />
+                  </Box>
                 </Box>
 
                 <Divider sx={{ my: 3 }} />
