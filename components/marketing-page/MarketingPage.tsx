@@ -11,7 +11,6 @@ const StyledMenu = styled(Menu)(() => ({
 }));
 
 const Wrapper = styled(Box)(() => ({
-  marginTop: "7rem !important",
   maxWidth: "1150px",
   margin: "auto",
 }));
@@ -20,11 +19,8 @@ export default function MarketingPage() {
   return (
     <Wrapper>
       <CssBaseline enableColorScheme />
-      <AppAppBar />
       <Hero />
       <StyledMenu tabItems={tabItems} />
-      <Divider />
-      <Footer />
     </Wrapper>
   );
 }
