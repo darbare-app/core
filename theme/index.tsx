@@ -3,7 +3,7 @@ import { createTheme, ThemeProvider, PaletteMode } from "@mui/material/styles";
 import { createContext } from "react";
 import { useState, useEffect, ReactNode } from "react";
 import CssBaseline from "@mui/material/CssBaseline";
-import getMPTheme from "./getMPTheme";
+import getTheme from "./getTheme";
 
 interface ThemeProviderProps {
   children: ReactNode;
@@ -18,7 +18,7 @@ export const ColorModeContext = createContext({
 export default function CustomThemeProvider({ children, local }: ThemeProviderProps) {
   const [mode, setMode] = useState<PaletteMode>("light");
 
-  const theme = createTheme(getMPTheme(mode, local));
+  const theme = createTheme(getTheme(mode, local));
 
   useEffect(() => {
     const savedMode = localStorage.getItem("themeMode") as PaletteMode | null;
