@@ -1,12 +1,19 @@
 import Image from "next/image";
 import logo from "/public/darbare.jpg";
-import { IconButton } from "@mui/material";
+import { IconButton, IconButtonProps } from "@mui/material";
 import MuiNextLink from "./CLink";
 
-export default function Logo() {
+export default function Logo({ sx, ...props }: IconButtonProps) {
   return (
     <IconButton
-      sx={{ display: "flex", alignItems: "center", justifyContent: "center", borderRadius: "50%" }}
+      sx={{
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        borderRadius: "50%",
+        ...sx,
+      }}
+      {...props}
     >
       <MuiNextLink
         href="/"
