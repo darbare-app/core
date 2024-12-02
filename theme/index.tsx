@@ -4,6 +4,7 @@ import { createContext } from "react";
 import { useState, useEffect, ReactNode } from "react";
 import CssBaseline from "@mui/material/CssBaseline";
 import getTheme from "./getTheme";
+import { getLocalSTheme, setLocalThemeMode } from "@/utils/helpers";
 
 interface ThemeProviderProps {
   children: ReactNode;
@@ -16,7 +17,7 @@ export const ColorModeContext = createContext({
 });
 
 export default function CustomThemeProvider({ children, local }: ThemeProviderProps) {
-  const [mode, setMode] = useState<PaletteMode>("light");
+  const [mode, setMode] = useState<PaletteMode>(getLocalSTheme());
 
   const theme = createTheme(getTheme(mode, local));
 
@@ -26,14 +27,16 @@ export default function CustomThemeProvider({ children, local }: ThemeProviderPr
       setMode(savedMode);
     } else {
       const systemPrefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-      setMode(systemPrefersDark ? "dark" : "light");
+      const systemPreferMode = systemPrefersDark ? "dark" : "light";
+      setLocalThemeMode(systemPreferMode);
+      setMode(systemPreferMode);
     }
   }, []);
 
   const toggleColorMode = () => {
     const newMode = mode === "dark" ? "light" : "dark";
     setMode(newMode);
-    localStorage.setItem("themeMode", newMode);
+    setLocalThemeMode(newMode);
   };
 
   return (
