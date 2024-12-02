@@ -18,17 +18,16 @@ interface RootLayoutProps extends ReactProps {
 }
 
 export default async function RootLayout({ children, params }: RootLayoutProps) {
+  const { local } = await params;
   
-  const urlParams = await params;
   const { resources } = await initTranslations();
-  const isFa = urlParams.local === "fa";
-  
+  const isFa = local === "fa";
 
   return (
-    <html lang={urlParams.local} dir={isFa ? "rtl" : "ltr"}>
-      <TranslationsProvider resources={resources} local={urlParams.local}>
+    <html lang={local} dir={isFa ? "rtl" : "ltr"}>
+      <TranslationsProvider resources={resources} local={local}>
         <RtlLayout>
-          <Theme local={urlParams.local}>
+          <Theme local={local}>
             <body>
               <MainLayout>{children}</MainLayout>
             </body>
