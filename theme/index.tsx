@@ -17,12 +17,10 @@ export const ColorModeContext = createContext({
 });
 
 export default function CustomThemeProvider({ children, local }: ThemeProviderProps) {
-  const [mode, setMode] = useState<PaletteMode>(getLocalSTheme());
-
-  const theme = createTheme(getTheme(mode, local));
+  const [mode, setMode] = useState<PaletteMode>("light");
 
   useEffect(() => {
-    const savedMode = localStorage.getItem("themeMode") as PaletteMode | null;
+    const savedMode = getLocalSTheme();
     if (savedMode) {
       setMode(savedMode);
     } else {
@@ -32,6 +30,8 @@ export default function CustomThemeProvider({ children, local }: ThemeProviderPr
       setMode(systemPreferMode);
     }
   }, []);
+
+  const theme = createTheme(getTheme(mode, local));
 
   const toggleColorMode = () => {
     const newMode = mode === "dark" ? "light" : "dark";
