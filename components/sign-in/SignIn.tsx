@@ -17,7 +17,6 @@ import { styled } from "@mui/material/styles";
 import ForgotPassword from "./ForgotPassword";
 import { GoogleIcon, FacebookIcon } from "./CustomIcons";
 import ColorModeSelect from "../shared-theme/ColorModeSelect";
-import Logo from "../Logo";
 import { FormEvent, useState } from "react";
 
 const Card = styled(MuiCard)(({ theme }) => ({
@@ -116,7 +115,6 @@ export default function SignIn() {
       <SignInContainer direction="column" justifyContent="space-between">
         <ColorModeSelect sx={{ position: "fixed", top: "1rem", right: "1rem" }} />
         <Card variant="outlined">
-          <Logo />
           <Typography
             component="h1"
             variant="h4"
