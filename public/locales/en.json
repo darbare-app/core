@@ -2,7 +2,6 @@
   "About Us": "About Us",
   "Already have an account?": "Already have an account?",
   "Blog": "Blog",
-  "Darbare": "Darbare",
   "Dashboard": "Dashboard",
   "Don't have an account?": "Don't have an account?",
   "Email": "Email",
@@ -21,8 +20,8 @@
   "Sign Up": "Sign Up",
   "Sign Up with Facebook": "Sign Up with Facebook",
   "Sign Up with Google": "Sign Up with Google",
-  "or": "or",
-  "your@email.com": "your@email.com",
+  "aboutUs": "aboutUs",
   "hero": "Every cup has a story",
-  "editQuestion": "Edit question"
+  "or": "or",
+  "your@email.com": "your@email.com"
 }

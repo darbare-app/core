@@ -74,6 +74,10 @@ export default function AppAppBar() {
       name: t("Dashboard"),
       link: getLink("dashboard"),
     },
+    {
+      name: t("aboutUs"),
+      link: getLink("aboutUs"),
+    }
   ];
 
   const [navElements, navElementsMobile] = navItems.reduce<[JSX.Element[], JSX.Element[]]>(

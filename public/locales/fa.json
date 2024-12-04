@@ -2,7 +2,6 @@
   "About Us": "About Us",
   "Already have an account?": "قبلاً حساب کاربری دارید؟",
   "Blog": "بلاگ",
-  "Darbare": "درباره",
   "Dashboard": "پیشخوان",
   "Don't have an account?": "حساب کاربری ندارید؟",
   "Email": "ایمیل",
@@ -21,7 +20,8 @@
   "Sign Up": "ثبت نام",
   "Sign Up with Facebook": "ثبت نام با فیس‌بوک",
   "Sign Up with Google": "ثبت نام با گوگل",
+  "aboutUs": "درباره ما",
+  "hero": "هر فنجان یک داستان",
   "or": "یا",
-  "your@email.com": "your@email.com",
-  "hero": "هر فنجان یک داستان"
+  "your@email.com": "your@email.com"
 }
