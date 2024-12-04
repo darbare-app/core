@@ -76,17 +76,25 @@ export default function AppAppBar() {
     },
   ];
 
-  const navElements = navItems.map(({ name, link }) => (
-    <Button key={link} component={Link} variant="text" color="info" size="small" href={link}>
-      {name}
-    </Button>
-  ));
-
-  const navElementsMobile = navItems.map(({ name, link }) => (
-    <MenuItem key={link} component={Link} href={link}>
-      {name}
-    </MenuItem>
-  ));
+  const [navElements, navElementsMobile] = navItems.reduce<[JSX.Element[], JSX.Element[]]>(
+    ([navElements, navElementsMobile], { name, link }) => {
+      const button = (
+        <Button key={link} component={Link} variant="text" color="info" size="small" href={link}>
+          {name}
+        </Button>
+      );
+      const menuItem = (
+        <MenuItem key={link} component={Link} href={link}>
+          {name}
+        </MenuItem>
+      );
+      return [
+        [...navElements, button],
+        [...navElementsMobile, menuItem],
+      ];
+    },
+    [[], []],
+  );
 
   return (
     <AppBar
