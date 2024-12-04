@@ -1,5 +1,5 @@
 import Image from "next/image";
-import logo from "/public/darbare.jpg";
+import logo from "/public/images/darbare.jpg";
 import { IconButton, IconButtonProps } from "@mui/material";
 import MuiNextLink from "./CLink";
 
