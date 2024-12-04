@@ -10,6 +10,8 @@ import viewAddresses from "../utils/viewAddresses.json";
 
 const Wrapper = styled(Box)(() => ({
   paddingTop: "6rem",
+  maxWidth: "1150px",
+  margin: "auto",
 }));
 
 export default function MainLayout({ children }: ReactProps) {
