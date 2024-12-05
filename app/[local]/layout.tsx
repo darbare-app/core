@@ -19,7 +19,7 @@ interface RootLayoutProps extends ReactProps {
 
 export default async function RootLayout({ children, params }: RootLayoutProps) {
   const { local } = await params;
-  
+
   const { resources } = await initTranslations();
   const isFa = local === "fa";
 
