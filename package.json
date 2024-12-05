@@ -4,7 +4,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "next build",
+    "build": "NODE_ENV=production next build",
     "cf-typegen": "wrangler types --env-interface CloudflareEnv env.d.ts",
     "deploy": "pnpm pages:build && wrangler pages deploy",
     "dev": "next dev",
@@ -14,7 +14,10 @@
     "pages:build": "pnpm next-on-pages",
     "prettier": "pnpm ./node_modules/prettier/bin/prettier.cjs   -w .",
     "preview": "pnpm pages:build && wrangler pages dev",
-    "start": "next start"
+    "start": "next start",
+    "db:generate": "drizzle-kit generate",
+    "db:migrate:local": "wrangler d1 migrations apply darbare-db --local",
+    "db:migrate:prod": "wrangler d1 migrations apply darbare-db --remote"
   },
   "dependencies": {
     "@emotion/cache": "^11.13.1",
@@ -34,9 +37,12 @@
     "@react-spring/web": "^9.7.5",
     "clsx": "^2.1.1",
     "dayjs": "^1.11.13",
+    "drizzle-kit": "^0.29.1",
+    "drizzle-orm": "^0.37.0",
     "i18next": "^23.16.5",
     "i18next-resources-to-backend": "^1.2.1",
     "next": "15.0.3",
+    "next-auth": "^4.24.10",
     "next-i18n-router": "^5.5.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
