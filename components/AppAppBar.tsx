@@ -77,7 +77,11 @@ export default function AppAppBar() {
     {
       name: t("aboutUs"),
       link: getLink("aboutUs"),
-    }
+    },
+    {
+      name: t("reservation"),
+      link: getLink("reservation"),
+    },
   ];
 
   const [navElements, navElementsMobile] = navItems.reduce<[JSX.Element[], JSX.Element[]]>(
@@ -107,9 +111,9 @@ export default function AppAppBar() {
     >
       <Container maxWidth="lg">
         <StyledToolbar variant="dense" disableGutters>
-          <Box sx={{ flexGrow: 1, display: "flex", alignItems: "center", px: 0 }}>
+          <Box sx={{ flexGrow: 1, display: "flex", alignItems: "center", px: 0, gap: "5px" }}>
             <Logo />
-            <Box sx={{ display: { xs: "none", md: "flex" } }}>{navElements}</Box>
+            <Box sx={{ display: { xs: "none", md: "flex", gap: "5px" } }}>{navElements}</Box>
           </Box>
           <Box
             sx={{
