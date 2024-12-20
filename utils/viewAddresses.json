@@ -3,5 +3,6 @@
   "dashboard": "dashboard",
   "signIn": "sign-in",
   "signUp": "sign-up",
-  "aboutUs": "about-us"
+  "aboutUs": "about-us",
+  "reservation": "reservation"
 }
